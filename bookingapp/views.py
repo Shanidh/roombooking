@@ -36,4 +36,7 @@ def newfunction11(request):
     return render(request,'packages.html')   
 
 def newfunction12(request):
-    return render(request,'bookingform.html')             
+    return render(request,'bookingform.html')  
+
+def newfunction13(request):
+    return render(request,'profile.html')                

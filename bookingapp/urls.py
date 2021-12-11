@@ -16,4 +16,5 @@ urlpatterns = [
     path('whitehotel',views.newfunction10,name='whitehotel'),
     path('packages',views.newfunction11,name='packages'),
     path('bookingform',views.newfunction12,name='bookingform'),
+    path('profile',views.newfunction13,name='profile'),
 ]

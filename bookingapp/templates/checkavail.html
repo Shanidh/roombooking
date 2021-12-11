@@ -85,14 +85,117 @@
     </header>
 
     <main>
+        <!--login modal-->
+        <div class="modal" tabindex="-1" role="dialog" id="modalSignin">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content rounded-5 shadow">
+                    <div class="modal-header p-5 pb-4 border-bottom-0">
+                        <!-- <h5 class="modal-title">Modal title</h5> -->
+                        <h2 class="fw-bold mb-0">Log In</h2>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <hr>
+                    <div class="modal-body p-5 pt-0">
+                        <form class="">
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control rounded-4" id="floatingInput" placeholder="name@example.com" required>
+                                <label for="floatingInput">Email address</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="password" class="form-control rounded-4" id="floatingPassword" placeholder="Password" required>
+                                <label for="floatingPassword">Password</label>
+                            </div>
+                            <button class="w-100 mb-2 btn btn-lg rounded-4 btn-primary" type="submit" id="showlogin">Login</button>
+                            <small class="text-muted">By signing in or creating an account, you agree with our Terms & conditions and Privacy statement</small>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--register modal-->
+        <div class="modal" tabindex="-1" role="dialog" id="modalregister">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content rounded-5 shadow">
+                    <div class="modal-header p-5 pb-4 border-bottom-0">
+                        <!-- <h5 class="modal-title">Modal title</h5> -->
+                        <h2 class="fw-bold mb-0">Register</h2>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <hr>
+                    <div class="modal-body p-5 pt-0">
+                        <form class="needs-validation" novalidate>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" aria-label="User Name" id="validationCustom01" name="username" required>
+                                <label for="validationCustom01">Enter user name</label>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Enter valid username
+                                </div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control" id="email" name="email" required>
+                                <label for="email">Enter your Email</label>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Enter valid email
+                                </div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" onfocus="(this.type='date')" id="dob" required>
+                                <label for="dob">Date of Birth</label>
+                                <div class="invalid-feedback">
+                                    Enter date of birth
+                                </div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="phone" minlength="10" required>
+                                <label for="phone">Enter your Phone Number</label>
+                                <div class="invalid-feedback">
+                                    Enter valid phone number
+                                </div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="password" class="form-control" id="password" minlength="8" name="pass" required>
+                                <label for="password">Enter a Password</label>
+                                <div class="invalid-feedback">
+                                    Enter password
+                                </div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="password" class="form-control" id="confirmpassword" minlength="8" name="pass" required>
+                                <label for="confirmpassword">Confirm Password</label>
+                                <div class="invalid-feedback">
+                                    Confirm password
+                                </div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <label for="Gender"> Gender</label> <br><br>
+                                <input type="radio" value="Male" name="Gender" id="male" required>Male &nbsp;
+                                <input type="radio" value="Female" name="Gender" id="female" required>Female <br><br>
+                                <div class="invalid-feedback">
+                                    Choose gender
+                                </div>
+                            </div>
+                            <button class="w-100 mb-2 btn btn-lg rounded-4 btn-primary" type="submit">Register</button>
+                            <small class="text-muted">By signing in or creating an account, you agree with our Terms & conditions and Privacy statement</small>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
         <br><br><br>
         <div id="myCarousel " data-bs-ride="carousel">
             <div style="background-color: darkgray; ">
                 <br>
-                <form action="# " class="search-box " style="padding-left: 45px; ">
+                <form action="# " class="search-box " style="padding-left: 95px; ">
                     <div class="input-group row ">
-                        <div class="col-md-2 ">
-                            <input class="form-control me-2 " type="search " placeholder="Enter City " aria-label="Search "><br>
+                        <div class="col-md-3 ">
+                            <input class="form-control me-2 " type="search " placeholder="Enter location" aria-label="Search "><br>
                         </div>
                         <div class="col-md-2 ">
                             <input type="text " class="form-control " placeholder="check-in " onfocus="(this.type='date' ) "><br>
@@ -100,13 +203,13 @@
                         <div class="col-md-2 ">
                             <input type="date " class="form-control " placeholder="check-out " aria-label="check-out " onfocus="(this.type='date' ) "><br>
                         </div>
-                        <div class="col-md-2 ">
+                        <!-- <div class="col-md-2 ">
                             <select class="form-select " id="inputGroupSelect04 " aria-label="Example select with button addon ">
                                 <option selected>1 Room</option>
                                 <option value="2 ">2 Rooms</option>
                                 <option value="3 ">3 Rooms</option>
                               </select>
-                        </div>
+                        </div> -->
                         <div class="col-md-2 ">
                             <select class="form-select " id="inputGroupSelect04 " aria-label="Example select with button addon ">
                                 <option selected>1 Guest</option>

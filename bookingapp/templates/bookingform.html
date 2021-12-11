@@ -1,0 +1,121 @@
+{% extends 'withoutfilter.html' %} {% load static %} {% block content %}
+
+<!-- Checkout Section Begin -->
+<section class="checkout spad">
+    <div class="container">
+        <div class="checkout__form">
+            <form action="#">
+                <div class="row">
+                    <div class="col-lg-8 col-md-6">
+                        <h2 class="checkout__title">Your Details:</h2><br>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="First name" aria-label="First name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="Last name" aria-label="Last name" required>
+                            </div>
+                        </div><br>
+                        <div class="col">
+                            <input type="text" class="form-control" id="inputAddress" placeholder="Address" required>
+                        </div><br>
+                        <div class="col">
+                            <input type="text" class="form-control" id="inputAddress2" placeholder="Address 2" required>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" id="inputcountry" placeholder="Country" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" id="inputstate" placeholder="State" required>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" id="inputcity" placeholder="Town/City" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="Postcode / ZIP" required>
+                            </div>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="Phone number" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="Email" required>
+                            </div>
+                        </div>
+                        <br><br>
+                        <div class="checkout__input__checkbox">
+
+                            <h2> Complete Your Booking:</h2>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <button type="button" class="btn btn-primary btn-lg">Pay at Hotel</button><br><br>
+                                <button type="button" class="btn btn-primary btn-lg">Credit/Debit/ATM cards</button>
+                            </div>
+                            <div class="col-md-6">
+                                <div style="display: none;">
+                                    <h4>No payment needed</h4>
+                                    <p>We will confirm your stay without any charge. Pay directly at the hotel during your stay.</p>
+                                    <button type="button" class="btn btn-primary btn-lg">Book Now</button>
+                                </div>
+                                <div style="display: none;">
+                                    <h4>Your card Details:</h4><br>
+                                    <div>
+                                        <input type="text" class="form-control" placeholder="Card Number" required>
+                                    </div><br>
+                                    <div>
+                                        <input type="text" class="form-control" placeholder="Card Holder Name" required>
+                                    </div><br>
+                                    <div>
+                                        <input type="text" class="form-control" placeholder="Valid through" required>
+                                    </div><br>
+                                    <div>
+                                        <input type="text" class="form-control" placeholder="CVV" required>
+                                    </div><br>
+                                    <button type="button" class="btn btn-primary btn-lg">Pay Now</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-4 ">
+                        <div class="checkout__order">
+                            <h4 class="order__title">Your order:</h4><br>
+                            <img src="{% static 'image/281851425.jpg' %}" alt="" height="120px" width="150px"><br><br>
+                            <p><b>White Suit Hotel</b></p>
+                            <p> Kozhikode,Kerala</p>
+                            <p><b>1 Night</b></p>
+                            <p><b>10/12/2021 - 11/12/2021</b></p>
+                            <p><b>1 Rooms, 2 Guests</b></p>
+                            <hr>
+                            <table class="table table-borderless">
+                                <tr>
+                                    <td>Room price for 1 Night X 2 Guests</td>
+                                    <td>₹3848</td>
+                                </tr>
+                                <tr>
+                                    <td>Discount</td>
+                                    <td>-₹1154</td>
+                                </tr>
+                            </table>
+                            <hr>
+                            <table class="table table-borderless">
+                                <tr>
+                                    <td>Payable Amount</td>
+                                    <td>₹2674</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<!-- Checkout Section End -->
+{% endblock %}

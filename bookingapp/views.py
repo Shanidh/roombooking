@@ -33,4 +33,7 @@ def newfunction10(request):
     return render(request,'whitehotel.html')    
 
 def newfunction11(request):
-    return render(request,'packages.html')          
+    return render(request,'packages.html')   
+
+def newfunction12(request):
+    return render(request,'bookingform.html')             

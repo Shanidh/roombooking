@@ -15,4 +15,5 @@ urlpatterns = [
     path('ownerhome',views.newfunction9,name='ownerhome'),
     path('whitehotel',views.newfunction10,name='whitehotel'),
     path('packages',views.newfunction11,name='packages'),
+    path('bookingform',views.newfunction12,name='bookingform'),
 ]

@@ -17,4 +17,6 @@ urlpatterns = [
     path('packages',views.newfunction11,name='packages'),
     path('bookingform',views.newfunction12,name='bookingform'),
     path('profile',views.newfunction13,name='profile'),
+    path('blogs',views.newfunction14,name='blogs'),
+    path('blogresult',views.newfunction15,name='blogresult'),
 ]

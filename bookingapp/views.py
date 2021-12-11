@@ -40,3 +40,9 @@ def newfunction12(request):
 
 def newfunction13(request):
     return render(request,'profile.html')                
+
+def newfunction14(request):
+    return render(request,'blogs.html')     
+
+def newfunction15(request):
+    return render(request,'blogresult.html')    

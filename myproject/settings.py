@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bookingapp',
+    'ownerapp',
 ]
 
 MIDDLEWARE = [
@@ -57,6 +58,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
              BASE_DIR/'bookingapp/templates',
+             BASE_DIR/'ownerapp/templates',
         ],
         'APP_DIRS': True,
         'OPTIONS': {

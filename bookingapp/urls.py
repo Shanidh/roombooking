@@ -19,4 +19,6 @@ urlpatterns = [
     path('profile',views.newfunction13,name='profile'),
     path('blogs',views.newfunction14,name='blogs'),
     path('blogresult',views.newfunction15,name='blogresult'),
+    path('bookreciept',views.newfunction16,name='bookreciept'),
+    path('reviews',views.newfunction17,name='reviews'),
 ]

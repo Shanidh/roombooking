@@ -46,3 +46,9 @@ def newfunction14(request):
 
 def newfunction15(request):
     return render(request,'blogresult.html')    
+
+def newfunction16(request):
+    return render(request,'bookreciept.html')   
+
+def newfunction17(request):
+    return render(request,'reviews.html')     

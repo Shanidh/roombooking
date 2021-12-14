@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>room booking</title>
+    <title>roombooking owner</title>
     <!-- jquery cdn -->
 
 
@@ -21,9 +21,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
-    <!-- Custom styles for this template -->
-    <link rel="stylesheet" href="{% static 'css/footers.css' %}">
-    <link rel="stylesheet" href="{% static 'css/carousel.css' %}">
+
 </head>
 
 <body>
@@ -37,7 +35,7 @@
                 </button>
 
                 <div style="margin-right: 50px;">
-                    <a href="login"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <a href="ologin"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Log In
   </button></a>
                 </div>
@@ -45,7 +43,7 @@
         </nav>
     </header>
 
-    <main><br><br>
+    <main><br><br><br><br><br>
 
         <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -102,15 +100,15 @@
                                     </div>
                                 </div>
                                 <br><br><br>
-                                <div class="col">
+                                <div class="col-12">
                                     <label for="Gender"> Gender</label> <br>
                                     <input type="radio" value="Male" name="Gender" id="male">Male &nbsp;
                                     <input type="radio" value="Female" name="Gender" id="female">Female <br><br>
-                                    <p id="generror"></p>
-                                </div>
-                                <div class="col-12">
-                                    <a href=""><button  type="submit" class="btn  btn-outline-primary" style="width: 200px;" id="signupbutton" >Submit</button></a>
-                                    <a href=""><button type="button" class="btn  btn-outline-primary" style="width: 200px;">Cancel</button></a>
+
+                                </div><br><br>
+                                <div class="col">
+                                    <a href="list"><button  type="submit" class="btn  btn-outline-primary" style="width: 200px;" id="signupbutton" >Submit</button></a>
+
                                 </div>
                             </form>
                         </div>
@@ -145,7 +143,5 @@
     <script src="{% static 'js/app.js' %}"></script>
 
 </body>
-
-</html>
 
 </html>

@@ -82,7 +82,15 @@
                     </ul>
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSignin" id="hidelogin">Login</button></a>&nbsp;&nbsp;
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalregister" id="hideregister">Register</button>
-                    <button type="button" class="btn btn-primary" id="showlogout" style="display: none;">LogOut</button>
+                    <div class="dropdown" style="padding-right: 70px; display: none;" id="showlogout">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-user fa-lg"></i>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="profile">Profile</a></li>
+                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                        </ul>
+                    </div>
 
                 </div>
             </div>
@@ -270,7 +278,8 @@
                                 <input type="checkbox" name="propertytypes " id="homestays " value="homestays ">Homestays
                                 <br><br>
                                 <input type="checkbox" name="propertytypes " id="boats " value="boats ">Boats
-                            </td>
+                                <br><br>
+                                <input type="checkbox" name="propertytypes " id="boats " value="others">Others</td>
                         </tr>
 
                     </table>
@@ -379,5 +388,7 @@
     </script>
 
 </body>
+
+</html>
 
 </html>

@@ -1,0 +1,74 @@
+{% extends 'owner.html' %} {% block content %}{% load static %}
+<br><br><br>
+<div class="container">
+    <h2>List Your Property:</h2>
+    <br>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+            <div class="card h-100">
+                <!-- <img src="{% static 'image/hotel cartoon.jpg' %}" class="card-img-top" alt="..." height="50px" width="50px"> -->
+                <div class="card-body">
+                    <h5 class="card-title">Hotel</h5>
+                    <p class="card-text">Accomodation for travellers often with restaurants, meeting rooms and other guest services.</p>
+                    <a href="addhotel" type="button" class="btn btn-primary">Click here</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <!-- <img src="..." class="card-img-top" alt="..."> -->
+                <div class="card-body">
+                    <h5 class="card-title">Resort</h5>
+                    <p class="card-text">Place that is frequented for holidays or recreation or for a particular purpose</p>
+                    <a href="addhotel" type="button" class="btn btn-primary">Click here</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Hostel</h5>
+                    <p class="card-text">Budget accomodations with mostly dorm-style beds and social atmosphere</p>
+                    <a href="addhotel" type="button" class="btn btn-primary">Click here</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Apartments</h5>
+                    <p class="card-text">Room or set of rooms fitted especially with housekeeping facilities and usually leased as a dwelling.
+                    </p>
+                    <a href="addhotel" type="button" class="btn btn-primary">Click here</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Homestays</h5>
+                    <p class="card-text">A shared home where the guest has private room and the host live and is on side. Some facilities are shared between hosts and guests.</p>
+                    <a href="addhotel" type="button" class="btn btn-primary">Click here</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">House boats</h5>
+                    <p class="card-text">Boat that has been designed or modified to be used primarily as a home.</p>
+                    <a href="addhotel" type="button" class="btn btn-primary">Click here</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Others</h5>
+                    <p class="card-text">Other properties</p>
+                    <a href="addhotel" type="button" class="btn btn-primary">Click here</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>{% endblock %}

@@ -74,10 +74,19 @@
                             <a class="nav-link active" aria-current="page" href="contactus">Contact Us</a>
                         </li>
                     </ul>
+                    <div class="dropdown" style="padding-right: 70px; display: none;" id="showlogout">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-user fa-lg"></i>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="profile">Profile</a></li>
+                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                        </ul>
+                    </div>
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSignin" id="hidelogin">Login</button></a>&nbsp;&nbsp;
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalregister" id="hideregister">Register</button>
-                    <a href="" style="display: none;"><i class="fa fa-user fa-lg"></i></a>&nbsp;&nbsp;&nbsp;
-                    <button type="button" class="btn btn-primary" id="showlogout" style="display: none;">LogOut</button>
+                    <!-- <a href="" style="display: none;"><i class="fa fa-user fa-lg"></i></a>&nbsp;&nbsp;&nbsp;
+                    <button type="button" class="btn btn-primary" id="showlogout" style="display: none;">LogOut</button> -->
                 </div>
             </div>
         </nav>

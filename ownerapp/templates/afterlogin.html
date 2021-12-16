@@ -1,0 +1,30 @@
+{% extends 'blankbase.html' %} {% block content %}{% load static %}
+<div><br>
+    <center>
+        <h2>Welcome to roombooking</h2><br><br>
+        <div class="row d-flex justify-content-center ">
+            <div class="col-sm-3">
+                <div class="card mx-auto ">
+                    <div class="col">
+                        <br>
+                        <img src="{% static 'image/hotel cartoon.jpg' %}" class="img-rounded" alt="Cinque Terre" height="200" width="200">
+
+                        <p></p>
+                        <a href="myproperty"><button type="button" class="btn  btn-outline-primary">My properties</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card mx-auto">
+                    <div class="col">
+
+                        <br>
+                        <img src="{% static 'image/hotel cartoon.jpg' %}" class="img-rounded" alt="Cinque Terre" height="200" width="200">
+                        <p></p>
+                        <a href="list" class="btn  btn-outline-primary">New property</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </center><br><br>
+</div>{% endblock %}

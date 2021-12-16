@@ -1,0 +1,58 @@
+{% extends 'obase.html' %} {% load static %} {% block content %}
+<div>
+    <h1 class="text-center my-0">Edit Room</h1><br><br>
+    <!--Staff section -->
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-6 col-lg-6 col-xlg-6 col-sm-12 mx-auto">
+
+                <form>
+
+                    <div class="form-group">
+                        <label for="pwd">Room Number:</label>
+                        <input type="number" class="form-control" id="roomnumber" name="roomnumber">
+                    </div><br>
+                    <div class="form-group">
+                        <label for="email">Room Type:</label>
+                        <select class="form-control" name="roomtype" id="roomtype">
+                            
+                            
+                            
+                            <option  value=1>Single</option>
+                            <option  value=2>Double</option>
+                            <option  value=3>Quad</option>
+
+                        </select>
+                    </div><br>
+                    <div class="form-group">
+                        <label for="pwd">Capacity:</label>
+                        <input type="number" class="form-control " id="capacity" name="capacity">
+                    </div><br>
+                    <div class="form-group">
+                        <label for="pwd">Price:</label>
+                        <input type="mumber" class="form-control " id="price" name="price">
+                    </div><br>
+                    <div class="form-group">
+                        <label for="pwd">Status:</label>
+                        <select class="form-control" name="status" id="status">
+                            <option value="1">Available</option>
+                            <option value="2">Not Available</option>
+                            
+                        </select>
+                    </div><br>
+                    <div class="form-group">
+                        <label for="pwd">Location:</label>
+                        <input type="text" class="form-control " id="hotel" name="hotel" disabled>
+                    </div><br>
+                    <button type="submit" class="btn btn-danger">Save</button>
+                    <input type="hidden" name="roomid">
+                    <input type="hidden" name="roomtypevalue" id="roomtypevalue">
+                    <input type="hidden" name="roomstatus" id="roomstatus">
+                    <input type="hidden" class="form-control " id="hotel" name="hotel">
+                    <input type="hidden" class="form-control" id="roomnumber" name="roomnumber">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>{% endblock %}

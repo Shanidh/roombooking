@@ -1,0 +1,208 @@
+{% extends 'obase.html' %} {% load static %} {% block content %}
+<div>
+    <h2 class="text-center">Room Stats</h2><br>
+    <div class="container-fluid px-5 py-5 border">
+        <div class="row">
+
+
+
+            <div class="col-xl-3 col-lg-6 col-sm-12 mb-4 ">
+                <div class="bg-white rounded-lg p-5 shadow">
+                    <h2 class="h6 font-weight-bold text-center mb-4">Total Rooms</h2>
+
+                    <!-- Progress bar 1 -->
+
+                    <div class="progress mx-auto">
+                        <span class="progress-left">
+                                    <span class="progress-bar border-primary"></span>
+                        </span>
+                        <span class="progress-right">
+                                    <span class="progress-bar border-primary"></span>
+                        </span>
+                        <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+                            <div class="h2 font-weight-bold"></div>
+                        </div>
+                    </div>
+                    <!-- END -->
+
+
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-sm-12 mb-4">
+                <div class="bg-white rounded-lg p-5 shadow">
+                    <h2 class="h6 font-weight-bold text-center mb-4">Available Rooms</h2>
+
+                    <!-- Progress bar 2 -->
+                    <div class="progress mx-auto">
+                        <span class="progress-left">
+                                    <span class="progress-bar border-success"></span>
+                        </span>
+                        <span class="progress-right">
+                                    <span class="progress-bar border-success"></span>
+                        </span>
+                        <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+                            <div class="h2 font-weight-bold"></div>
+                        </div>
+                    </div>
+                    <!-- END -->
+
+
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-sm-12 mb-4">
+                <div class="bg-white rounded-lg p-5 shadow">
+                    <h2 class="h6 font-weight-bold text-center mb-4">Not Available</h2>
+
+                    <!-- Progress bar 3 -->
+                    <div class="progress mx-auto">
+                        <span class="progress-left">
+                                    <span class="progress-bar border-danger"></span>
+                        </span>
+                        <span class="progress-right">
+                                    <span class="progress-bar border-danger"></span>
+                        </span>
+                        <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+                            <div class="h2 font-weight-bold"></div>
+                        </div>
+                    </div>
+                    <!-- END -->
+
+
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-sm-12 mb-4">
+                <div class="bg-white rounded-lg p-5 shadow">
+                    <h2 class="h6 font-weight-bold text-center mb-4">Total Reservation</h2>
+
+                    <!-- Progress bar 4 -->
+                    <div class="progress mx-auto">
+                        <span class="progress-left">
+                                    <span class="progress-bar border-warning"></span>
+                        </span>
+                        <span class="progress-right">
+                                    <span class="progress-bar border-warning"></span>
+                        </span>
+                        <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+                            <div class="h2 font-weight-bold"></div>
+                        </div>
+                    </div>
+                    <!-- END -->
+
+
+                </div>
+            </div>
+
+        </div>
+
+    </div><br><br>
+    <h2 class="text-center pb-2">Rooms Details</h2><br>
+
+    <Button class="btn-group btn btn-primary" data-toggle="modal" data-target="#newroom">Add New Room</Button>
+
+
+    <a href="list" Button class="btn-group btn btn-primary" type="button">Add New Property</a>
+    <a href="myproperty" Button class="btn-group btn btn-primary" type="button">Another Property</a><br>
+    <br>
+    <table class="table table-striped  ">
+        <thead>
+            <th>Room Number</th>
+            <th>Type</th>
+            <th>Status</th>
+            <th>Price</th>
+            <th>Capacity</th>
+
+            <th colspan="2">Actions</th>
+
+        </thead>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+
+            <td colspan="2">
+                <a href="editroom"><Button class="btn btn-danger">Edit</Button></a>
+                <a href="viewroom"><Button class="btn btn-primary">View</Button></a>
+            </td>
+
+
+        </tr>
+
+    </table>
+    <!-- The Modal -->
+    <div class="modal" tabindex="-1" role="dialog" id="newroom">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Add New Room</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="container">
+
+                        <div class="row">
+                            <div class="col mx-auto">
+
+                                <form>
+
+
+                                    <div class="form-group">
+                                        <label for="email">Room Type:</label>
+                                        <select class="form-control" name="roomtype" id="roomtype">
+                                        
+                                        <option value="1">Single</option>
+                                        <option value="2">Double</option>
+                                        <option value="3">Quad</option>
+                                    </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="pwd">Capacity:</label>
+                                        <input type="number" class="form-control " id="capacity" name="capacity">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="pwd">Price:</label>
+                                        <input type="mumber" class="form-control " id="price" name="price">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="pwd">Size:</label>
+                                        <input type="number" class="form-control " id="size" name="size">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="pwd">Status:</label>
+                                        <select class="form-control" name="status" id="roomstatus">
+                                        
+                                        <option value="1">Available</option>
+                                        <option value="2">Not Available</option>
+                                        
+                                    </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="pwd">Location:</label>
+
+                                        <select class="form-control" name="hotel" id="hotel">
+                                       
+                                        <option ></option>
+                                       
+                                        
+                                        
+                                    </select>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Add Room</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+    <!--Modal for Add New Room Ends here-->
+</div>{% endblock %}

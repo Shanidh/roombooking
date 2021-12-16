@@ -10,11 +10,26 @@ def newfunction1(request):
 def newfunction2(request):
     return render(request,'oprofile.html')  
 
-def newfunction3(request):
-    return render(request,'oaddroom.html')
-
 def newfunction4(request):
     return render(request,'list.html')  
 
 def newfunction5(request):
     return render(request,'addhotel.html') 
+
+def newfunction6(request):
+    return render(request,'odashboard.html')  
+
+def newfunction7(request):
+    return render(request,'afterlogin.html')       
+
+def newfunction8(request):
+    return render(request,'myproperty.html')      
+
+def newfunction9(request):
+    return render(request,'editroom.html')      
+
+def newfunction10(request):
+    return render(request,'viewroom.html')     
+
+def newfunction11(request):
+    return render(request,'allbooking.html')       

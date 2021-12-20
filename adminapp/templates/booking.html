@@ -1,0 +1,73 @@
+{% extends 'admin1.html' %}{% load static %} {% block content %}
+<div>
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Booking Details: </h1>
+    </div><br>
+    <div class="table-responsive">
+        <table class="table table-striped table-sm">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Customer Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone Number</th>
+                    <th scope="col">Property Name</th>
+                    <th scope="col">Property Type</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Checkin</th>
+                    <th scope="col">Checkout</th>
+                    <th scope="col">Payment</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Ram</td>
+                    <td>ram@gmail.com</td>
+                    <td>9864325452</td>
+                    <td>White Hotel</td>
+                    <td>Hotel</td>
+                    <td>Kozhikode</td>
+                    <td>02/11/2021</td>
+                    <td>03/11/2021</td>
+                    <td>Paid</td>
+                    <td><a href="editbooking" button type="button" class="btn btn-primary">Edit</a>
+                        <button class="btn btn-primary">Delete</button></td>
+                </tr>
+
+
+
+                <tr>
+                    <td>2</td>
+                    <td>Ram</td>
+                    <td>ram@gmail.com</td>
+                    <td>9864325452</td>
+                    <td>White Hotel</td>
+                    <td>Hotel</td>
+                    <td>Kozhikode</td>
+                    <td>02/11/2021</td>
+                    <td>03/11/2021</td>
+                    <td>Paid</td>
+                    <td><a href="editbooking" button type="button" class="btn btn-primary">Edit</a>
+                        <button class="btn btn-primary">Delete</button></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Ram</td>
+                    <td>ram@gmail.com</td>
+                    <td>9864325452</td>
+                    <td>White Hotel</td>
+                    <td>Hotel</td>
+                    <td>Kozhikode</td>
+                    <td>02/11/2021</td>
+                    <td>03/11/2021</td>
+                    <td>Paid</td>
+                    <td><a href="editbooking" button type="button" class="btn btn-primary">Edit</a>
+                        <button class="btn btn-primary">Delete</button></td>
+                </tr>
+
+            </tbody>
+        </table><br><br><br>
+    </div>
+</div>{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'admin1.html' %}{% load static %} {% block content %}
+<div>
+    <div><br>
+        <h1 class="text-center my-0">Edit Blog</h1><br><br>
+        <!--Staff section -->
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-6 col-lg-6 col-xlg-6 col-sm-12 mx-auto">
+
+                    <form>
+
+                        <div class="form-group">
+                            <label for="title">Title:</label>
+                            <input type="text" class="form-control" id="title" name="title">
+                        </div><br>
+                        <div class="form-group">
+                            <label for="categories">Categories:</label>
+                            <input type="text" class="form-control" id="categories" name="categories">
+                        </div><br>
+                        <div class="form-group">
+                            <label for="writtenby">Written by:</label>
+                            <input type="text" class="form-control " id="writtenby" name="writtenby">
+                        </div><br>
+                        <!-- <div class="form-group">
+                            <label for="dob">Date of Birth:</label>
+                            <input type="text" class="form-control " id="dob" name="dob" value="02/12/2000" disabled>
+                        </div><br> -->
+                        <div class="form-group">
+                            <label for="description">Description:</label>
+                            <input type="text" class="form-control " id="description" name="description">
+                        </div><br>
+                        <button type="submit" class="btn btn-danger">Save</button>
+                        <a href="ablogs" button type="reset" class="btn btn-danger">Cancel</a>
+                        <input type="hidden" name="roomid">
+                        <input type="hidden" name="roomtypevalue" id="roomtypevalue">
+                        <input type="hidden" name="roomstatus" id="roomstatus">
+                        <input type="hidden" class="form-control " id="hotel" name="hotel">
+                        <input type="hidden" class="form-control" id="roomnumber" name="roomnumber">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>{% endblock %}

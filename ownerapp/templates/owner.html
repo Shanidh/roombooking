@@ -67,7 +67,7 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
 
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="ownerhome">Home</a>
                         </li>
                         <li class="nav-item">
@@ -76,14 +76,11 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="addroom">Add room</a>
                         </li>
-                        <!-- <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Blogs</a>
-                        </li> -->
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="chats">Chats</a>
-                        </li>
+                        </li> -->
                     </ul>
-                    <a href="index"><button type="button" class="btn btn-primary">LogOut</button></a>
+                    <a href="{% url 'ologout' %}"><button type="button" class="btn btn-primary">LogOut</button></a>
                 </div>
             </div>
         </nav>

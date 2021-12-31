@@ -35,7 +35,7 @@
                 </button>
 
                 <div style="margin-right: 50px;">
-                    <a href="ologin"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <a href="{% url 'ologin' %}"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Log In
   </button></a>
                 </div>
@@ -52,20 +52,21 @@
 
                         <div class="row d-flex justify-content-center ">
                             <h2>Register New Account</h2>
-                            <form class="row g-3 needs-validation" style="width: 60%;" id="signupform" method="post" action="#" novalidate>
+                            <form class="row g-3 needs-validation" style="width: 60%;" action="/owner/osignup/" method='POST' novalidate>
+                                {% csrf_token %}
                                 <div class="row g-3">
                                     <div class="col-md-6">
 
-                                        <input type="text" class="form-control" placeholder="Enter User name" aria-label="User Name" id="validationCustom01" name="username" required>
+                                        <input type="text" class="form-control" placeholder="Enter User name" aria-label="User Name" id="ousername" name="username" required>
                                         <div class="valid-feedback">
                                             Looks good!
                                         </div>
                                         <div class="invalid-feedback">
-                                            Enter valid phone number
+                                            Enter valid username
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="email" class="form-control" id="email" placeholder="Enter your Email" name="email" required>
+                                        <input type="email" class="form-control" id="oemail" placeholder="Enter your Email" name="email" required>
                                         <div class="valid-feedback">
                                             Looks good!
                                         </div>
@@ -75,26 +76,26 @@
 
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" placeholder="Date of Birth" onfocus="(this.type='date')" id="dob" required>
+                                        <input type="text" class="form-control" placeholder="Date of Birth" onfocus="(this.type='date')" id="odob" name="dob" required>
                                         <div class="invalid-feedback">
                                             Enter date
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="number" class="form-control" id="phone" placeholder="Enter your Phone Number" required>
+                                        <input type="number" class="form-control" id="ophone" name="phone" placeholder="Enter your Phone Number" required>
                                         <div class="invalid-feedback">
                                             Enter valid phone number
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="password" class="form-control" id="password" placeholder="Enter a Password" minlength="8" name="pass" required>
+                                    <input type="password" class="form-control" id="opassword" placeholder="Enter a Password" minlength="8" name="password" required>
                                     <div class="invalid-feedback">
                                         Enter password
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="password" class="form-control" id="confirmpassword" placeholder="Confirm Password" name="pass" required>
+                                    <input type="password" class="form-control" onchange="Validate()" id="oconfirmpassword" placeholder="Confirm Password" name="conpassword" required>
                                     <div class="invalid-feedback">
                                         Confirm password
                                     </div>
@@ -107,7 +108,8 @@
 
                                 </div><br><br>
                                 <div class="col">
-                                    <a href="list"><button  type="submit" class="btn  btn-outline-primary" style="width: 200px;" id="signupbutton" >Submit</button></a>
+                                    <!-- <a href="list"> -->
+                                    <button class="btn  btn-outline-primary" style="width: 200px;" type="submit">Submit</button>{{msg}}{{err}}
 
                                 </div>
                             </form>
@@ -141,6 +143,17 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
 
     <script src="{% static 'js/app.js' %}"></script>
+    <script>
+        function Validate() {
+            var password = document.getElementById("opassword").value;
+            var confirmPassword = document.getElementById("oconfirmpassword").value;
+            if (newpassword != confirmPassword) {
+                alert("Passwords do not match.");
+                return false;
+            }
+            return true;
+        }
+    </script>
 
 </body>
 

@@ -1,11 +1,51 @@
 from django.shortcuts import render
+from . models import *
 
 # Create your views here.
 def newfunction(request):
-    return render(request,'ologin.html')
+    try:
+        if request.method == "POST":
+
+            print('hiiiiiii')
+            
+            email = request.POST['lemail']
+            password = request.POST['lpassword']
+            ob1 = owners.objects.get(email=email)
+            if ob1.password==password:
+                request.session['sample1'] = ob1.id
+                return render(request,'afterlogin.html')
+
+
+    except Exception as e:
+        print(e)
+    return render(request,'ologin.html',{"msg1": "invalid username or password"})
 
 def newfunction1(request):
-    return render(request,'osignup.html')
+    try:
+        if request.method == 'POST':
+            username = request.POST['username']
+            obj = owners.objects.filter(username=username).exists()
+            if(obj == False):
+                username = request.POST['username']
+                email = request.POST['email']
+                dob = request.POST['dob']
+                phonenum=request.POST['phone']
+                password1 = request.POST['password']
+                obj1 = owners(username=username, email=email,dob=dob, phone_num=phonenum, password=password1)
+                obj1.save()
+                return render(request, 'osignup.html', {"msg": "saved successfully"})
+            else:
+                return render(request, 'osignup.html', {"err": "user already exists"})
+    except Exception as e:
+        print(e)
+    return render(request, 'osignup.html')
+
+def ologout(request):
+    try:
+        del request.session['sample1']
+    except KeyError:
+        pass 
+    return render(request,'ologin.html')    
 
 def newfunction2(request):
     return render(request,'oprofile.html')  

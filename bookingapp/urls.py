@@ -4,7 +4,8 @@ from.import views
 
 urlpatterns = [
     
-    path('index',views.newfunction,name='index'),
+    path('index/',views.usersignup,name='index'),
+    path('login/',views.ulogin,name='login'),
     path('signup',views.newfunction2,name='signup'),
     path('addroom',views.newfunction3,name='addroom'),
     path('aboutus',views.newfunction4,name='aboutus'),
@@ -16,9 +17,11 @@ urlpatterns = [
     path('whitehotel',views.newfunction10,name='whitehotel'),
     path('packages',views.newfunction11,name='packages'),
     path('bookingform',views.newfunction12,name='bookingform'),
-    path('profile',views.newfunction13,name='profile'),
+    path('profile/',views.uchangepass,name='profile'),
     path('blogs',views.newfunction14,name='blogs'),
     path('blogresult',views.newfunction15,name='blogresult'),
     path('bookreciept',views.newfunction16,name='bookreciept'),
     path('reviews',views.newfunction17,name='reviews'),
+    path('logout',views.ulogout,name='logout'),
+    path('uprofile/',views.uprofile,name='uprofile')
 ]

@@ -54,16 +54,16 @@
                         </div><br>
                         <div class="row">
                             <div class="col-md-6">
-                                <button type="button" class="btn btn-primary btn-lg">Pay at Hotel</button><br><br>
-                                <button type="button" class="btn btn-primary btn-lg">Credit/Debit/ATM cards</button>
+                                <button type="button" class="btn btn-primary btn-lg" id="payathotel">Pay at Hotel</button><br><br>
+                                <button type="button" class="btn btn-primary btn-lg" id="payonbook">Credit/Debit/ATM cards</button>
                             </div>
                             <div class="col-md-6">
-                                <div style="display: none;">
+                                <div style="display: none;" id="nopay">
                                     <h4>No payment needed</h4>
                                     <p>We will confirm your stay without any charge. Pay directly at the hotel during your stay.</p>
                                     <button type="button" class="btn btn-primary btn-lg">Book Now</button>
                                 </div>
-                                <div style="display: none;">
+                                <div style="display: none;" id="pay">
                                     <h4>Your card Details:</h4><br>
                                     <div>
                                         <input type="text" class="form-control" placeholder="Card Number" required>
@@ -116,6 +116,8 @@
             </form>
         </div>
     </div>
+
 </section>
 <!-- Checkout Section End -->
+
 {% endblock %}

@@ -71,9 +71,19 @@
                             <a class="nav-link active" aria-current="page" href="contactus">Contact Us</a>
                         </li>
                     </ul>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSignin" id="hidelogin">Login</button></a>&nbsp;&nbsp;
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalregister" id="hideregister">Register</button>
-                    <button type="button" class="btn btn-primary" id="showlogout" style="display: none;">LogOut</button>
+                    {% if 'sample' in request.session %}
+                    <div class="dropdown" style="padding-right: 70px;" id="headprofile">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-user fa-lg"></i>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
+                            <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+                        </ul>
+                    </div>
+                    {% else %}
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSignin" id="headlogin">Login</button></a>&nbsp;&nbsp;
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalregister" id="headregister">Register</button> {% endif %}
                 </div>
             </div>
         </nav>
@@ -256,7 +266,7 @@
                     <div class="col-2">
                         <h5>Partner with us:</h5><br>
                         <ul class="nav flex-column">
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Add property</a></li>
+                            <li class="nav-item mb-2"><a href="\owner\ologin\" class="nav-link p-0 text-muted">Add property</a></li>
                             <li class="nav-item mb-2"><a href="aboutus" class="nav-link p-0 text-muted">About</a></li>
                         </ul>
                     </div>
@@ -332,7 +342,18 @@
 
         });
     </script>
-
+    <script>
+        $('#payathotel').click(function() {
+            console.log('hii')
+            $('#nopay').show()
+            $('#pay').hide()
+        })
+        $('#payonbook').click(function() {
+            console.log('hii')
+            $('#pay').show()
+            $('#nopay').hide()
+        })
+    </script>
 </body>
 
 </html>

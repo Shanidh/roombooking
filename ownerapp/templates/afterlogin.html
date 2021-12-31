@@ -10,7 +10,7 @@
                         <img src="{% static 'image/hotel cartoon.jpg' %}" class="img-rounded" alt="Cinque Terre" height="200" width="200">
 
                         <p></p>
-                        <a href="myproperty"><button type="button" class="btn  btn-outline-primary">My properties</button></a>
+                        <a href="{% url 'myproperty' %}"><button type="button" class="btn  btn-outline-primary">My properties</button></a>
                     </div>
                 </div>
             </div>
@@ -21,7 +21,7 @@
                         <br>
                         <img src="{% static 'image/hotel cartoon.jpg' %}" class="img-rounded" alt="Cinque Terre" height="200" width="200">
                         <p></p>
-                        <a href="list" class="btn  btn-outline-primary">New property</a>
+                        <a href="{% url 'list' %}" class="btn  btn-outline-primary">New property</a>
                     </div>
                 </div>
             </div>

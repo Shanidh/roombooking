@@ -100,8 +100,8 @@
     <Button class="btn-group btn btn-primary" data-toggle="modal" data-target="#newroom">Add New Room</Button>
 
 
-    <a href="list" Button class="btn-group btn btn-primary" type="button">Add New Property</a>
-    <a href="myproperty" Button class="btn-group btn btn-primary" type="button">Another Property</a><br>
+    <a href="{% url 'addhotel' %}" Button class="btn-group btn btn-primary" type="button">Add New Property</a>
+    <a href="{% url 'myproperty' %}" Button class="btn-group btn btn-primary" type="button">Another Property</a><br>
     <br>
     <table class="table table-striped  ">
         <thead>

@@ -103,8 +103,8 @@
                                 <br><br><br>
                                 <div class="col-12">
                                     <label for="Gender"> Gender</label> <br>
-                                    <input type="radio" value="Male" name="Gender" id="male">Male &nbsp;
-                                    <input type="radio" value="Female" name="Gender" id="female">Female <br><br>
+                                    <input type="radio" value="Male" name="gender" id="male">Male &nbsp;
+                                    <input type="radio" value="Female" name="gender" id="female">Female <br><br>
 
                                 </div><br><br>
                                 <div class="col">
@@ -147,7 +147,7 @@
         function Validate() {
             var password = document.getElementById("opassword").value;
             var confirmPassword = document.getElementById("oconfirmpassword").value;
-            if (newpassword != confirmPassword) {
+            if (password != confirmPassword) {
                 alert("Passwords do not match.");
                 return false;
             }

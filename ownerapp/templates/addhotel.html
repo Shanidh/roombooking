@@ -3,15 +3,29 @@
     <br><br><br>
     <h2>Welcome</h2>
     <p>Add your property</p><br>
-    <form>
+    <form action="{% url 'addhotel' %}" method='POST'>
+        {% csrf_token %}
         <div class="row">
             <div class="col">
-                <input type="text" class="form-control" placeholder="Name of your property" aria-label="First name">
+                <input type="text" class="form-control" name="property_name" placeholder="Name of your property" aria-label="property name">
+            </div>
+            <div class="col">
+                <label for="propertytype">Type:</label>
+
+                <select name="property_type">
+                  <option value="Hotel">Hotel</option>
+                  <option value="Resort">Resort</option>
+                  <option value="Hostel">Hostel</option>
+                  <option value="Apartment">Apartment</option>
+                  <option value="Homestay">Homestay</option>
+                  <option value="Houseboat">Houseboat</option>
+                  <option value="Others">Others</option>
+                </select>
             </div>
             <div class="col">
                 <label for="hotelrate">Star rating:</label>
 
-                <select name="hotelrate" id="hotelrate">
+                <select name="star_rate">
                   <option value="5 star">5 star</option>
                   <option value="4 star">4 star</option>
                   <option value="3 star">3 star</option>
@@ -23,83 +37,118 @@
         <h3>Contact Details:</h3><br>
         <div class="row">
             <div class="col-md-6">
-                <input type="text" class="form-control" placeholder="Name" aria-label="contact name">
+                <input type="text" class="form-control" placeholder="Name" name="contact_name" aria-label="contact name">
             </div>
             <div class="col-md-6">
-                <input type="number" class="form-control" placeholder="Phone number" aria-label="contact number">
+                <input type="number" class="form-control" placeholder="Phone number" name="contact_phone" aria-label="contact number">
             </div>
         </div><br>
         <h3>Property Address:</h3><br>
         <div class="row">
             <div class="col-12">
                 <label for="inputAddress" class="form-label">Address</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="Address line 1">
-            </div>
-            <div class="col-12">
-                <label for="inputAddress2" class="form-label">Address 2</label>
-                <input type="text" class="form-control" id="inputAddress2" placeholder="Address line 2">
+                <input type="text" class="form-control" name="property_address" placeholder="Address">
             </div>
             <div class="col-md-6">
                 <label for="inputCity" class="form-label">City</label>
-                <input type="text" class="form-control" id="inputCity">
+                <select name="City" class="form-select">
+                    <option selected value="Kozhikode">Kozhikode</option>
+                    <option value="Kochi">Kochi</option>
+                    <option value="Trivandrum">Trivandrum</option>
+                  </select>
             </div>
             <div class="col-md-4">
                 <label for="inputState" class="form-label">State</label>
-                <select id="inputState" class="form-select">
-              <option selected>Choose...</option>
-              <option>...</option>
+                <select name="State" class="form-select">
+              <option value="Kerala" selected>Kerala</option>
+              <option value="Tamil Nadu">Tamil Nadu</option>
+              <option value="Karnataka">Karnataka</option>
             </select>
             </div>
             <div class="col-md-2">
-                <label for="inputZip" class="form-label">Zip</label>
-                <input type="text" class="form-control" id="inputZip">
+                <label for="inputZip" class="form-label">Pincode</label>
+                <input type="text" class="form-control" name="Pincode">
             </div>
         </div>
         <br>
         <h3>Property Description:</h3><br>
         <div class="mb-3">
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Describe about your property"></textarea>
+            <textarea class="form-control" name="description" rows="3" placeholder="Describe about your property"></textarea>
         </div><br>
-        <h3>Layout and pricing:</h3><br>
+        <!-- <h3>Layout and pricing:</h3><br>
         <div>
-            <button type="button" class="btn btn-primary">Add room</button><br>
+            <div class="row">
+                <div class="col-md-2">
+                    <label for="pwd">Room Type:</label>
+                    <select class="form-control" name="roomtype" id="roomtype">                           
+                        <option  value=1>Single</option>
+                        <option  value=2>Double</option>
+                        <option  value=3>Quad</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label for="pwd">Capacity:</label>
+                    <input type="number" class="form-control " id="capacity" name="capacity">
+                </div>
+                <div class="col-md-2">
+                    <label for="pwd">Price:</label>
+                    <input type="mumber" class="form-control " id="price" name="price">
+                </div>
+                <div class="col-md-2">
+                    <label for="pwd">Status:</label>
+                    <select class="form-control" name="status" id="status">
+                        <option value="1">Available</option>
+                        <option value="2">Not Available</option>
+                        
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label for="pwd">Location:</label>
+                    <input type="text" class="form-control " id="hotel" name="hotel">
+                </div>
+                <button type="button" class="btn btn-primary col-md-2">Add room</button>
+            </div>
             <table class="table">
                 <tr>
-                    <th>Room type</th>
-                    <th>Number of same type of room</th>
-                    <th>price per 1 room</th>
-                    <th>Action</th>
+                    <th>Type</th>
+                    <th>Capacity</th>
+                    <th>Price</th>
+                    <th>Status</th>
+                    <th>Location</th>
+                    <th colspan="2">Actions</th>
                 </tr>
                 <tr>
+                    <td></td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td><button class="btn-primary">Edit</button><br><button class="btn-primary">Delete</button></td>
                 </tr>
             </table>
-        </div><br>
+        </div><br> -->
         <h3>Facilities that are popular with guests</h3><br>
         <div class="row">
             <div class="col-md-6">
-                <input type="checkbox" value="free wifi">Free Wifi <br><br>
-                <input type="checkbox" value="Restaurant">Restaurant <br><br>
-                <input type="checkbox" value="Room Service">Room Service<br><br>
-                <input type="checkbox" value="Bar">Bar<br><br>
-                <input type="checkbox" value="24-hour Front Desk">24-hour Front Desk<br><br>
-                <input type="checkbox" value="Sauna">Sauna<br><br>
-                <input type="checkbox" value="Fitness Centre">Fitness Centre<br><br>
-                <input type="checkbox" value="Garden">Garden<br><br>
-                <input type="checkbox" value="Terrace">Terrace<br><br>
+                <input type="checkbox" name="free_wifi" value="free wifi">Free Wifi <br><br>
+                <input type="checkbox" name="restaurant" value="Restaurant">Restaurant <br><br>
+                <input type="checkbox" name="Room_Service" value="Room Service">Room Service<br><br>
+                <input type="checkbox" name="Bar" value="Bar">Bar<br><br>
+                <input type="checkbox" name="front_desk" value="24-hour Front Desk">24-hour Front Desk<br><br>
+                <input type="checkbox" name="Sauna" value="Sauna">Sauna<br><br>
+                <input type="checkbox" name="Fitness_Centre" value="Fitness Centre">Fitness Centre<br><br>
+                <input type="checkbox" name="Garden" value="Garden">Garden<br><br>
+                <input type="checkbox" name="Terrace" value="Terrace">Terrace<br><br>
             </div>
             <div class="col-md-6">
-                <input type="checkbox" value="Airport Shuttle">Airport Shuttle<br><br>
-                <input type="checkbox" value="Family Rooms">Family Rooms<br><br>
-                <input type="checkbox" value="Spa">Spa<br><br>
-                <input type="checkbox" value="Hot Tub">Hot Tub<br><br>
-                <input type="checkbox" value="Air Conditioning">Air Conditioning<br><br>
-                <input type="checkbox" value="Water Park">Water Park<br><br>
-                <input type="checkbox" value="Electric Vehicle Charging Stations">Electric Vehicle Charging Stations<br><br>
-                <input type="checkbox" value="Swimming Pool">Swimming Pool<br><br>
+                <input type="checkbox" name="Airport_Shuttle" value="Airport Shuttle">Airport Shuttle<br><br>
+                <input type="checkbox" name="Family Rooms" value="Family Rooms">Family Rooms<br><br>
+                <input type="checkbox" name="Spa" value="Spa">Spa<br><br>
+                <input type="checkbox" name="Hot_Tub" value="Hot Tub">Hot Tub<br><br>
+                <input type="checkbox" name="Air_Conditioning" value="Air Conditioning">Air Conditioning<br><br>
+                <input type="checkbox" name="Water_Park" value="Water Park">Water Park<br><br>
+                <input type="checkbox" name="ElectricVehicleChargingStations" value="Electric Vehicle Charging Stations">Electric Vehicle Charging Stations<br><br>
+                <input type="checkbox" name="Swimming_Pool" value="Swimming Pool">Swimming Pool<br><br>
             </div>
         </div><br>
         <h3>Property Photos:</h3><br>
@@ -110,7 +159,7 @@
         <div>
             <label for="cancelroom">How many days in advance can customer cancel free of charge</label>
 
-            <select name="cancelroom" id="cancelroom">
+            <select name="Cancel_freecharge_date">
               <option value="Day of arrival">Day of arrival</option>
               <option value="1 day">1 day</option>
               <option value="2 days">2 days</option>
@@ -119,39 +168,27 @@
               <option value="14 days">14 days</option>
             </select>
         </div><br>
-        <!-- <div>
-            <label for="Checkin">Checkin:</label>
-
-            <select name="Checkin" id="Checkin">
-              <option value="12pm">Day of arrival</option>
-              <option value="1 day">1 day</option>
-              <option value="2 days">2 days</option>
-              <option value="3 days">3 days</option>
-              <option value="7 days">7 days</option>
-              <option value="14 days">14 days</option>
-            </select>
-        </div> -->
         <div>
-            <label for="children">Can you accomodate children</label>
+            <label for="child">Can you accomodate children</label>
 
-            <select name="children" id="children">
+            <select name="Children">
               <option value="yes">yes</option>
               <option value="no">no</option>
             </select>
         </div><br>
         <div>
-            <label for="pets">Pets are allowed</label>
+            <label for="Pets">Pets are allowed</label>
 
-            <select name="pets" id="pets">
+            <select name="pets">
               <option value="yes">yes</option>
               <option value="no">no</option>
             </select>
         </div><br>
         <h3>Payments:</h3><br>
         <div>
-            <label for="payment">Payment ption</label>
+            <label for="Payment">Payment option</label>
 
-            <select name="payment" id="payment">
+            <select name="payment">
               <option value="Pay at property">Pay at property</option>
               <option value="Pay online">Pay online</option>
               <option value="Both">Both</option>
@@ -159,4 +196,38 @@
         </div><br>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-</div>{% endblock %}
+</div>
+<!-- <script>
+    $.ajaxSetup({
+        headers: {
+            "X-CSRFToken": '{{csrf_token}}'
+        }
+    });
+
+    function addproperty() {
+        $.ajax({
+            url: '/odashboard/',
+            type: 'POST',
+            data: {
+                property_name: $('#property_name').val(),
+                property_type: $('#property_type').val(),
+                star_rate: $('#star_rate').val(),
+                contact_name: $('#contact_name').val(),
+                contact_phone: $('#contact_phone').val(),
+                property_address: $('#property_address').val(),
+                City: $('#City').val(),
+                State: $('#State').val(),
+                Pincode: $('#Pincode').val(),
+                description: $('#description').val(),
+                Cancel_freecharge_date: $('#Cancel_freecharge_date').val(),
+                Children: $('#Children').val(),
+                pets: $('#pets').val(),
+                payment: $('#payment').val()
+            },
+            success: function(response) {
+                alert(response.msg1)
+            }
+        })
+    }
+</script> -->
+{% endblock %}

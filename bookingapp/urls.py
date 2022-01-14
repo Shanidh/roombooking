@@ -1,12 +1,15 @@
 
 from django.urls import path, include
 from.import views
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     
-    path('index/',views.usersignup,name='index'),
+    path('',views.userindex,name='index'),
+    path('signup/',views.usersignup,name='signup'),
     path('login/',views.ulogin,name='login'),
-    path('signup',views.newfunction2,name='signup'),
+    # path('signup',views.newfunction2,name='signup'),
     path('addroom',views.newfunction3,name='addroom'),
     path('aboutus',views.newfunction4,name='aboutus'),
     path('contactus',views.newfunction5,name='contactus'),
@@ -23,5 +26,7 @@ urlpatterns = [
     path('bookreciept',views.newfunction16,name='bookreciept'),
     path('reviews',views.newfunction17,name='reviews'),
     path('logout',views.ulogout,name='logout'),
-    path('uprofile/',views.uprofile,name='uprofile')
+    path('uprofile/',views.uprofile,name='uprofile'),
+    path('userimage/',views.userimage,name='userimage')
 ]
+urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

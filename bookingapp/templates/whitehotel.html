@@ -15,7 +15,7 @@
                         </li>
                         <li class="nav-item ">
                             <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">
-                                <div class="product__thumb__pic set-bg" data-setbg="https://cf.bstatic.com/xdata/images/hotel/max1024x768/282897266.jpg?k=10bf882cdac3e5a79df50a85293d8972d6a2e533856d3bea7881007a637892bd&o=&hp=1" style="height: 100px; width: 100px;">
+                                <div class="product__thumb__pic set-bg" data-setbg="{% static 'image/wh2.jpg' %}" style="height: 100px; width: 100px;">
                                 </div>
                             </a>
                         </li>
@@ -43,7 +43,7 @@
                         </div>
                         <div class="tab-pane" id="tabs-2" role="tabpanel">
                             <div class="product__details__pic__item">
-                                <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/282897266.jpg?k=10bf882cdac3e5a79df50a85293d8972d6a2e533856d3bea7881007a637892bd&o=&hp=1" alt="sdsd" style="height: 400px; width: 500px;">2
+                                <img src="{% static 'image/wh2.jpg' %}" alt="sdsd" style="height: 400px; width: 500px;">2
                             </div>
                         </div>
                         <div class="tab-pane" id="tabs-3" role="tabpanel">
@@ -84,7 +84,7 @@
                             <div class="product__details__cart__option">
                                 <!-- <a href="#" class="primary-btn">add to cart</a> -->
                                 <form action="#">
-                                    <div class="col row">
+                                    <div class="col-md-4 row ">
                                         <div class="input-group col-md-4">
                                             <p>Number of Guests:</p>&nbsp;
                                             <span class="input-group-btn">
@@ -99,22 +99,8 @@
                                             </button>
                                             </span>
                                         </div><br>
-                                        <!-- <div class="input-group col-md-4">
-                                            <p>Number of rooms:</p>&nbsp;
-                                            <span class="input-group-btn">
-                                                <button type="button" class="quantity-left-minus btn btn-dark btn-number"  data-type="minus" data-field="">
-                                                  <span class="glyphicon glyphicon-minus">-</span>
-                                            </button>
-                                            </span>
-                                            <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1" min="1" max="10">
-                                            <span class="input-group-btn">
-                                                <button type="button" class="quantity-right-plus btn btn-dark btn-number" data-type="plus" data-field="">
-                                                    <span class="glyphicon glyphicon-plus">+</span>
-                                            </button>
-                                            </span>
-                                        </div> -->
                                     </div><br>
-                                    <div class="row col">
+                                    <div class="row col-md-4">
                                         <div class="input-group col-md-4">
                                             <label for="checkintime">Checkin time:</label>
                                             <input type="time" name="checkintime">

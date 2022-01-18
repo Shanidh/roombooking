@@ -1,0 +1,34 @@
+{% extends 'owner.html' %} {% block content %}
+<div class="container">
+    <br><br><br>
+    <h3>Facilities that are popular with guests</h3><br>
+    <form action="{% url 'myproperty' %}" method="POST">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-md-6">
+                <input type="checkbox" name="free_wifi" value="free wifi">Free Wifi <br><br>
+                <input type="checkbox" name="restaurant" value="Restaurant">Restaurant <br><br>
+                <input type="checkbox" name="Room_Service" value="Room Service">Room Service<br><br>
+                <input type="checkbox" name="Bar" value="Bar">Bar<br><br>
+                <input type="checkbox" name="front_desk" value="24-hour Front Desk">24-hour Front Desk<br><br>
+                <input type="checkbox" name="Sauna" value="Sauna">Sauna<br><br>
+                <input type="checkbox" name="Fitness_Centre" value="Fitness Centre">Fitness Centre<br><br>
+                <input type="checkbox" name="Garden" value="Garden">Garden<br><br>
+                <input type="checkbox" name="Terrace" value="Terrace">Terrace<br><br>
+            </div>
+            <div class="col-md-6">
+                <input type="checkbox" name="Airport_Shuttle" value="Airport Shuttle">Airport Shuttle<br><br>
+                <input type="checkbox" name="Family_Rooms" value="Family Rooms">Family Rooms<br><br>
+                <input type="checkbox" name="Spa" value="Spa">Spa<br><br>
+                <input type="checkbox" name="Hot_Tub" value="Hot Tub">Hot Tub<br><br>
+                <input type="checkbox" name="Air_Conditioning" value="Air Conditioning">Air Conditioning<br><br>
+                <input type="checkbox" name="Water_Park" value="Water Park">Water Park<br><br>
+                <input type="checkbox" name="ElectricVehicleChargingStations" value="Electric Vehicle Charging Stations">Electric Vehicle Charging Stations<br><br>
+                <input type="checkbox" name="Swimming_Pool" value="Swimming Pool">Swimming Pool<br><br>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">submit</button>
+        <a href="{% url 'myproperty' %}" class="btn btn-primary">Back</button>
+    </form>
+    <br>
+</div>{% endblock %}

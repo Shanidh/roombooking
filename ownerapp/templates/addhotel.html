@@ -1,13 +1,13 @@
-{% extends 'owner.html' %} {% block content %}{% load static %}
+{% extends 'owner.html' %} {% block content %}
 <div class="container">
     <br><br><br>
     <h2>Welcome</h2>
     <p>Add your property</p><br>
-    <form action="{% url 'addhotel' %}" method='POST'>
+    <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="row">
             <div class="col">
-                <input type="text" class="form-control" name="property_name" placeholder="Name of your property" aria-label="property name">
+                <input type="text" class="form-control" name="property_name1" placeholder="Name of your property" aria-label="property name">
             </div>
             <div class="col">
                 <label for="propertytype">Type:</label>
@@ -127,33 +127,9 @@
                 </tr>
             </table>
         </div><br> -->
-        <h3>Facilities that are popular with guests</h3><br>
-        <div class="row">
-            <div class="col-md-6">
-                <input type="checkbox" name="free_wifi" value="free wifi">Free Wifi <br><br>
-                <input type="checkbox" name="restaurant" value="Restaurant">Restaurant <br><br>
-                <input type="checkbox" name="Room_Service" value="Room Service">Room Service<br><br>
-                <input type="checkbox" name="Bar" value="Bar">Bar<br><br>
-                <input type="checkbox" name="front_desk" value="24-hour Front Desk">24-hour Front Desk<br><br>
-                <input type="checkbox" name="Sauna" value="Sauna">Sauna<br><br>
-                <input type="checkbox" name="Fitness_Centre" value="Fitness Centre">Fitness Centre<br><br>
-                <input type="checkbox" name="Garden" value="Garden">Garden<br><br>
-                <input type="checkbox" name="Terrace" value="Terrace">Terrace<br><br>
-            </div>
-            <div class="col-md-6">
-                <input type="checkbox" name="Airport_Shuttle" value="Airport Shuttle">Airport Shuttle<br><br>
-                <input type="checkbox" name="Family Rooms" value="Family Rooms">Family Rooms<br><br>
-                <input type="checkbox" name="Spa" value="Spa">Spa<br><br>
-                <input type="checkbox" name="Hot_Tub" value="Hot Tub">Hot Tub<br><br>
-                <input type="checkbox" name="Air_Conditioning" value="Air Conditioning">Air Conditioning<br><br>
-                <input type="checkbox" name="Water_Park" value="Water Park">Water Park<br><br>
-                <input type="checkbox" name="ElectricVehicleChargingStations" value="Electric Vehicle Charging Stations">Electric Vehicle Charging Stations<br><br>
-                <input type="checkbox" name="Swimming_Pool" value="Swimming Pool">Swimming Pool<br><br>
-            </div>
-        </div><br>
         <h3>Property Photos:</h3><br>
         <div>
-            <input type="file" placeholder="Add Photos">
+            <input type="file" name="propertyimage" placeholder="Add Photos">
         </div><br>
         <h3>Policies:</h3><br>
         <div>
@@ -196,38 +172,4 @@
         </div><br>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-</div>
-<!-- <script>
-    $.ajaxSetup({
-        headers: {
-            "X-CSRFToken": '{{csrf_token}}'
-        }
-    });
-
-    function addproperty() {
-        $.ajax({
-            url: '/odashboard/',
-            type: 'POST',
-            data: {
-                property_name: $('#property_name').val(),
-                property_type: $('#property_type').val(),
-                star_rate: $('#star_rate').val(),
-                contact_name: $('#contact_name').val(),
-                contact_phone: $('#contact_phone').val(),
-                property_address: $('#property_address').val(),
-                City: $('#City').val(),
-                State: $('#State').val(),
-                Pincode: $('#Pincode').val(),
-                description: $('#description').val(),
-                Cancel_freecharge_date: $('#Cancel_freecharge_date').val(),
-                Children: $('#Children').val(),
-                pets: $('#pets').val(),
-                payment: $('#payment').val()
-            },
-            success: function(response) {
-                alert(response.msg1)
-            }
-        })
-    }
-</script> -->
-{% endblock %}
+</div>{% endblock %}

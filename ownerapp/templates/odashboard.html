@@ -1,5 +1,6 @@
-{% extends 'obase.html' %} {% load static %} {% block content %}
-<div>
+{% extends 'owner.html' %} {% block content %}
+<div class="container">
+    <br><br><br><br>
     <h2 class="text-center">Room Stats</h2><br>
     <div class="container-fluid px-5 py-5 border">
         <div class="row">
@@ -114,21 +115,20 @@
             <th colspan="2">Actions</th>
 
         </thead>
+        {% for i in dataa %}
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>{{i.roomnumber}}</td>
+            <td>{{i.roomtype}}</td>
+            <td>{{i.capacity}}</td>
+            <td>{{i.price}}</td>
+            <td>{{i.status}}</td>
 
             <td colspan="2">
                 <a href="{% url 'editroom' %}"><Button class="btn btn-danger">Edit</Button></a>
                 <a href="{% url 'viewroom' %}"><Button class="btn btn-primary">View</Button></a>
             </td>
-
-
         </tr>
-
+        {% endfor %}
     </table>
     <!-- The Modal -->
     <div class="modal" tabindex="-1" role="dialog" id="newroom">
@@ -148,16 +148,19 @@
                         <div class="row">
                             <div class="col mx-auto">
 
-                                <form>
-
-
+                                <form method="POST" action="{% url 'addroom' %}">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <label for="pwd">Room Number:</label>
+                                        <input type="text" class="form-control " name="roomnumber">
+                                    </div>
                                     <div class="form-group">
                                         <label for="email">Room Type:</label>
                                         <select class="form-control" name="roomtype" id="roomtype">
                                         
-                                        <option value="1">Single</option>
-                                        <option value="2">Double</option>
-                                        <option value="3">Quad</option>
+                                        <option value="Single">Single</option>
+                                        <option value="Double">Double</option>
+                                        <option value="Quad">Quad</option>
                                     </select>
                                     </div>
                                     <div class="form-group">
@@ -169,26 +172,11 @@
                                         <input type="mumber" class="form-control " id="price" name="price">
                                     </div>
                                     <div class="form-group">
-                                        <label for="pwd">Size:</label>
-                                        <input type="number" class="form-control " id="size" name="size">
-                                    </div>
-                                    <div class="form-group">
                                         <label for="pwd">Status:</label>
                                         <select class="form-control" name="status" id="roomstatus">
                                         
-                                        <option value="1">Available</option>
-                                        <option value="2">Not Available</option>
-                                        
-                                    </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="pwd">Location:</label>
-
-                                        <select class="form-control" name="hotel" id="hotel">
-                                       
-                                        <option ></option>
-                                       
-                                        
+                                        <option value="Available">Available</option>
+                                        <option value="Not Available">Not Available</option>
                                         
                                     </select>
                                     </div>
@@ -253,4 +241,30 @@
             <td><button class="btn btn-primary">Respond</button>&nbsp;<button class="btn btn-primary">Cancel</button></td>
         </tr>
     </table>
-</div>{% endblock %}
+    <br>
+    <a href="{% url 'myproperty' %}">Back</button>
+</div>
+<!-- <script>
+    $.ajaxSetup({
+        headers: {
+            "X-CSRFToken": '{{csrf_token}}'
+        }
+    });
+
+    function roominsert() {
+        $.ajax({
+            url: '/addroom/',
+            type: 'POST',
+            data: {
+                roomtype1: $('#roomtype').val(),
+                capacity1: $('#capacity').val(),
+                price1: $('#price').val(),
+                roomstatus1: $('#roomstatus').val()
+            },
+            success: function(response) {
+                alert(response.msg1)
+            }
+        })
+    }
+</script> -->
+{% endblock %}

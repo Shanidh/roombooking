@@ -1,0 +1,80 @@
+{% extends 'obase.html' %} {% block content %}
+<div>
+    {% if messages %} {% for message in messages %}
+    <div class="alert alert-dismissible alert-success">
+        <button type="button" class="close" data-dismiss="alert">
+      ×
+      </button>
+        <strong>{{message}}<strong>
+    </div>
+ {% endfor %}
+{% endif %}
+    <div style="background-color: gray; height: 100px;">
+        <h2 id="contact" align="center"><br>
+            <b>Contact Us:</b></h2>
+    </div><br><br>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-6">
+                <form action="{% url 'sendmessage' %}" method="POST">
+                    {% csrf_token %}
+                    <textarea class="form-control" name="message" placeholder="Enter Message" rows="10"></textarea><br>
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Enter name" name="name" aria-label="User Name" id="usernamecontact">
+                        </div>
+                        <div class="col">
+                            <input type="email" class="form-control" id="emailcontact" name="email" placeholder="Enter your Email" >
+                        </div>
+                        <div class="col-12"><br>
+                            <input type="text" class="form-control" name="subject" placeholder="Enter Subject"><br>
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-primary" style="width: 100px;">Send</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-md-4 offset-md-1"><br>
+                <div class="media-account-info row">
+
+                    <i class="fa fa-phone fa-2x"></i>
+
+                    <div class="media-body ">
+                        <a href="tel:9444777891" style="text-decoration: none;">
+                                    +91 9444777891
+                                </a>
+                        <p>Mon to Fri 9am to 6pm</p>
+                    </div>
+
+                </div><br><br>
+                <!-- <div class="media-account-info row">
+    
+                        <i class="fa fa-whatsapp fa-2x"></i>
+    
+                        <div class="media-body ">
+                            <a href="whatsapp://send?text=Hello World!&phone=++919444777891" style="text-decoration: none; ">
+                                +91 9444777891
+                                </a>
+                            <p>Mon to Fri 9am to 6pm</p>
+                        </div>
+    
+                    </div><br> -->
+                <div class="media-account-info row ">
+
+                    <i class="fa fa-envelope fa-2x "></i>
+
+                    <div class="media-body ">
+                        <a href="mailto: abc@example.com " style="text-decoration: none; ">
+                                    support@roombooking.com
+                                </a>
+                        <p>Send Us Your Query Anytime!</p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>{% endblock %}

@@ -3,6 +3,7 @@ from . models import *
 from django.http import JsonResponse, HttpResponse
 from django.core.files.storage import FileSystemStorage
 from random import random
+from django.contrib import messages
 
 # Create your views here.
 def newfunction(request):
@@ -89,28 +90,36 @@ def addproperty(request):
 
 
 def addroom(request):
-    userid=request.session['sample1']
-    activeprop = request.session['prprty']
-    propertydt=ownerproperties(id=activeprop, uploadby=userid)
-    pp=roomproperty.objects.filter(property_id_id=activeprop)
-    if request.method=='POST':
-        roomnumber=request.POST['roomnumber']
-        roomtype=request.POST['roomtype']
-        capacity=request.POST['capacity']
-        price=request.POST['price']
-        status=request.POST['status']
-        bb=roomproperty(roomnumber=roomnumber,roomtype=roomtype, capacity=capacity, price=price, status=status,property_id_id=activeprop,owner_id=userid)
-        bb.save()
-        return render(request,'odashboard.html', {'dataa':pp})   
-    return render(request, 'odashboard.html') 
+    try:
+      userid=request.session['sample1']
+      activeprop = request.session['prprty']
+      propertydt=ownerproperties.objects.filter(uploadby=userid)
+      pp=roomproperty.objects.filter(property_id_id=activeprop)
+      if request.method=='POST':
+          roomnumber=request.POST['roomnumber']
+          roomtype=request.POST['roomtype']
+          capacity=request.POST['capacity']
+          price=request.POST['price']
+          status=request.POST['status']
+          bb=roomproperty(roomnumber=roomnumber,roomtype=roomtype, capacity=capacity, price=price, status=status,property_id_id=activeprop,owner_id=userid)
+          bb.save()
+          messages.success(request, 'Romm added successfully.')
+          return render(request,'myproperty.html', {'data':propertydt})  
+    except Exception as e: print(e)  
+    return render(request, 'myproperty.html', {'data':propertydt}) 
 
 def newfunction6(request,prpid=None):
     userid=request.session['sample1']
     propertydt=ownerproperties(id=prpid, uploadby=userid)
     k=roomproperty.objects.filter(property_id_id=propertydt.id)
+    totalrooms=len(k)
     activeprop = request.session['prprty'] = prpid
-    print(activeprop)
-    return render(request, 'odashboard.html',{'dataa':k})  
+    available=roomproperty.objects.filter(property_id_id=propertydt.id,status="Available")
+    av=len(available)
+    unavailable=roomproperty.objects.filter(property_id_id=propertydt.id,status="Unavailable")
+    uv=len(unavailable)
+    context={'dataa':k,'total':totalrooms,'available':av,'unavailable':uv}
+    return render(request, 'odashboard.html',context)  
 
 def newfunction7(request):
     # if 'sample1' not in request.session:
@@ -123,11 +132,25 @@ def myproperty(request):
     obj=ownerproperties.objects.filter(uploadby=userid)
     return render(request,'myproperty.html',{'data':obj})     
 
-def newfunction9(request):
-    return render(request,'editroom.html')      
+def editroom(request,roomid=None):
+    try:
+      userid=request.session['sample1']
+      room=roomproperty.objects.get(id=roomid)
+    
+      activeroom = request.session['roomprp'] = roomid
+      roomed=roomproperty.objects.filter(id=activeroom)
+      print(activeroom)
+      return render(request,'editroom.html',{'rd':roomed})      
+    except Exception as e: print(e)
+    return render(request,'myproperty.html') 
 
-def newfunction10(request):
-    return render(request,'viewroom.html')     
+def newfunction10(request,roomid=None):
+    userid=request.session['sample1']
+    room=roomproperty.objects.filter(id=roomid)
+    activeprop = request.session['prprty']
+    activeroom1 = request.session['roomprp1'] = roomid
+    prop=ownerproperties.objects.filter(id=activeprop)
+    return render(request,'viewroom.html',{'view':room})     
 
 def newfunction11(request):
     return render(request,'allbooking.html') 
@@ -139,12 +162,11 @@ def facilities(request,prpid=None):
     activeprop = request.session['prprty'] = prpid
     print(activeprop)
     if request.method=='POST':
-        free_wifi=request.POST['free_wifi']
-        if free_wifi=="":
-            test ="False"
+        free_wifi= request.POST['free_wifi']    
+        if free_wifi == 'null':
+           free_wifi = False  
         else:
-            test="True"
-        
+            free_wifi = True     
         print(free_wifi)
         # restaurant=request.POST['restaurant']
         # Room_Service=request.POST['Room_Service']
@@ -166,3 +188,55 @@ def facilities(request,prpid=None):
         bb.save()
         return render(request,'myproperty.html')
     return render(request,'facilities.html')          
+
+def updateroom(request):
+    try:
+       userid=request.session['sample1']
+       activeroom = request.session['roomprp'] 
+       roomss=roomproperty.objects.filter(id=activeroom,owner_id=userid)
+       obj=ownerproperties.objects.filter(uploadby=userid)
+       if request.method=='POST':
+          roomnumber=request.POST['roomnumber']
+          roomtype=request.POST['roomtype']
+          capacity=request.POST['capacity']
+          price=request.POST['price']
+          status=request.POST['status']
+          r = roomproperty.objects.filter(id=activeroom).update(roomnumber=roomnumber,roomtype=roomtype, capacity=capacity, price=price, status=status)
+          r.save()
+          messages.success(request, 'Updated successfully.')
+          return render(request,'myproperty.html',{'data':obj})
+    except Exception as e: print(e)      
+    return render(request,'myproperty.html',{'data':obj})
+
+def deleteroom(request,roomid=None):
+    userid=request.session['sample1']
+    obj=ownerproperties.objects.filter(uploadby=userid)
+    activeroom1 = request.session['roomprp1'] = roomid
+    roomed=roomproperty.objects.filter(id=activeroom1).delete()
+    messages.success(request, 'Deleted successfully.')
+    return render(request,'myproperty.html',{'data':obj})    
+
+def oaboutus(request):
+    return render(request,'oaboutus.html')
+
+def oblogs(request):
+    return render(request,'oblogs.html')    
+
+def ocontactus(request):
+    return render(request,'ocontactus.html')     
+
+def sendmessage(request):
+    try:
+       userid=request.session['sample1']
+       if request.method=='POST':
+           message=request.POST['message']
+           name=request.POST['name']
+           email=request.POST['email']
+           subject=request.POST['subject']
+           obj=ownercontactus(message=message,name=name,email=email,subject=subject,owner_id=userid)
+           obj.save()
+           messages.success(request, 'Message sended successfully.')
+           return render(request,'ocontactus.html')
+    except Exception as e: print(e)       
+    messages.error(request, 'Message not sended')    
+    return render(request,'ocontactus.html')    

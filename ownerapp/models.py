@@ -60,3 +60,10 @@ class facilities(models.Model):
     Swimming_Pool=models.CharField(max_length=6,null=True)    
     propertyf=models.ForeignKey(ownerproperties,on_delete=models.CASCADE,null=True)    
     owner=models.ForeignKey(owners,on_delete=models.CASCADE,null=True)
+
+class ownercontactus(models.Model):
+    owner=models.ForeignKey(owners,on_delete=models.CASCADE,null=True)
+    name=models.CharField(max_length=25)
+    email=models.EmailField()
+    subject=models.CharField(max_length=20,null=True)
+    message=models.CharField(max_length=200,null=True)

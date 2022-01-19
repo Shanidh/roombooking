@@ -3,12 +3,13 @@
     <h3> Details: </h3>
     <hr>
     <div class="container mx-0 ">
-        <p><b>Number :-</b></p>
-        <p><b>Type :-</b></p>
-        <p><b>Capacity :-</b> </p>
-        <p><b>Status :-</b> </p>
-        <p><b>City :-</b> </p>
-        <p><b>State :-</b> </p>
+        {% for i in view %}
+        <p><b>Room Number :-</b>{{i.roomnumber}}</p>
+        <p><b>Room Type :-</b>{{i.roomtype}}</p>
+        <p><b>Capacity :-</b>{{i.capacity}} </p>
+        <p><b>Status :-</b>{{i.status}} </p>
+        <p><b>price :-</b>{{i.price}} </p>
+        {% endfor %}
     </div>
     <hr><br>
     <h3>Bookings: </h3>

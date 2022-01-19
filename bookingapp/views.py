@@ -8,7 +8,7 @@ from django.http import JsonResponse
 from django.shortcuts import redirect
 from .forms import *
 from django.contrib.auth.forms import UserCreationForm
-
+from django.contrib import messages
 
 
 # Create your views here.
@@ -149,7 +149,7 @@ def userimage(request):
     except Exception as e:
         print(e)
     
-    return render(request, 'index.html', {'pas': obj3})   
+    return render(request, 'index.html', {"pas": obj3})   
 
 # def userimage(request):
 
@@ -177,4 +177,20 @@ def newfunction16(request):
     return render(request,'bookreciept.html')   
 
 def newfunction17(request):
-    return render(request,'reviews.html')     
+    return render(request,'reviews.html')   
+   
+def usersendmessage(request):
+    try:
+       userid=request.session['sample']
+       if request.method=='POST':
+           message=request.POST['message']
+           name=request.POST['name']
+           email=request.POST['email']
+           subject=request.POST['subject']
+           obj=usercontactus(message=message,name=name,email=email,subject=subject,user_id=userid)
+           obj.save()
+           messages.success(request, 'Message sended successfully.')
+           return render(request,'contactus.html')
+    except Exception as e: print(e)       
+    messages.error(request, 'Message not sended')
+    return render(request,'contactus.html')     

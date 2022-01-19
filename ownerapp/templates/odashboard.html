@@ -4,9 +4,6 @@
     <h2 class="text-center">Room Stats</h2><br>
     <div class="container-fluid px-5 py-5 border">
         <div class="row">
-
-
-
             <div class="col-xl-3 col-lg-6 col-sm-12 mb-4 ">
                 <div class="bg-white rounded-lg p-5 shadow">
                     <h2 class="h6 font-weight-bold text-center mb-4">Total Rooms</h2>
@@ -20,8 +17,8 @@
                         <span class="progress-right">
                                     <span class="progress-bar border-primary"></span>
                         </span>
-                        <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
-                            <div class="h2 font-weight-bold"></div>
+                        <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center">
+                            <div class="progress-bar" role="progressbar" style="width: '{{total}}%'  ;" aria-valuenow="{{total}}" aria-valuemin="0" aria-valuemax="10">{{total}}</div>
                         </div>
                     </div>
                     <!-- END -->
@@ -41,8 +38,8 @@
                         <span class="progress-right">
                                     <span class="progress-bar border-success"></span>
                         </span>
-                        <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
-                            <div class="h2 font-weight-bold"></div>
+                        <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center">
+                            <div class="progress-bar" role="progressbar" style="width: '{{available}}%'  ;" aria-valuenow="{{available}}" aria-valuemin="0" aria-valuemax="10">{{available}}</div>
                         </div>
                     </div>
                     <!-- END -->
@@ -62,8 +59,8 @@
                         <span class="progress-right">
                                     <span class="progress-bar border-danger"></span>
                         </span>
-                        <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
-                            <div class="h2 font-weight-bold"></div>
+                        <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center">
+                            <div class="progress-bar" role="progressbar" style="width: '{{unavailable}}%'  ;" aria-valuenow="{{unavailable}}" aria-valuemin="0" aria-valuemax="10">{{unavailable}}</div>
                         </div>
                     </div>
                     <!-- END -->
@@ -102,7 +99,7 @@
 
 
     <a href="{% url 'addhotel' %}" Button class="btn-group btn btn-primary" type="button">Add New Property</a>
-    <a href="{% url 'myproperty' %}" Button class="btn-group btn btn-primary" type="button">Another Property</a><br>
+    <a href="{% url 'myproperty' %}" Button class="btn-group btn btn-primary" type="button">Back</a><br>
     <br>
     <table class="table table-striped  ">
         <thead>
@@ -119,13 +116,16 @@
         <tr>
             <td>{{i.roomnumber}}</td>
             <td>{{i.roomtype}}</td>
-            <td>{{i.capacity}}</td>
-            <td>{{i.price}}</td>
             <td>{{i.status}}</td>
+            <td>{{i.price}}</td>
+            <td>{{i.capacity}}</td>
+
+
 
             <td colspan="2">
-                <a href="{% url 'editroom' %}"><Button class="btn btn-danger">Edit</Button></a>
-                <a href="{% url 'viewroom' %}"><Button class="btn btn-primary">View</Button></a>
+                <a href="{% url 'editroom' i.id %}"><Button class="btn btn-primary">Edit</Button></a>
+                <a href="{% url 'viewroom' i.id %}"><Button class="btn btn-primary">View</Button></a>
+                <a href="{% url 'deleteroom' i.id %}"><Button class="btn btn-primary">Delete</Button></a>
             </td>
         </tr>
         {% endfor %}
@@ -176,7 +176,7 @@
                                         <select class="form-control" name="status" id="roomstatus">
                                         
                                         <option value="Available">Available</option>
-                                        <option value="Not Available">Not Available</option>
+                                        <option value="Unavailable">Not Available</option>
                                         
                                     </select>
                                     </div>
@@ -242,29 +242,5 @@
         </tr>
     </table>
     <br>
-    <a href="{% url 'myproperty' %}">Back</button>
 </div>
-<!-- <script>
-    $.ajaxSetup({
-        headers: {
-            "X-CSRFToken": '{{csrf_token}}'
-        }
-    });
-
-    function roominsert() {
-        $.ajax({
-            url: '/addroom/',
-            type: 'POST',
-            data: {
-                roomtype1: $('#roomtype').val(),
-                capacity1: $('#capacity').val(),
-                price1: $('#price').val(),
-                roomstatus1: $('#roomstatus').val()
-            },
-            success: function(response) {
-                alert(response.msg1)
-            }
-        })
-    }
-</script> -->
 {% endblock %}

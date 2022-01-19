@@ -27,6 +27,7 @@ urlpatterns = [
     path('reviews',views.newfunction17,name='reviews'),
     path('logout',views.ulogout,name='logout'),
     path('uprofile/',views.uprofile,name='uprofile'),
-    path('userimage/',views.userimage,name='userimage')
+    path('userimage/',views.userimage,name='userimage'),
+    path('usersendmessage/',views.usersendmessage,name='usersendmessage')
 ]
 urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

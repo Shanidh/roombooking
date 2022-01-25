@@ -33,15 +33,15 @@
             </div>
         </form>
         </div>
-
+        {% for i in adc %}
         <div class="col-md-3 offset-md-2"><br>
             <div class="media-account-info row">
 
                 <i class="fa fa-phone fa-2x"></i>
-
+                
                 <div class="media-body ">
-                    <a href="tel:9444777891" style="text-decoration: none;">
-                                +91 9444777891
+                    <a href="tel:{{i.phone_num}}" style="text-decoration: none;">
+                                {{i.phone_num}}
                             </a>
                     <p>Mon to Fri 9am to 6pm</p>
                 </div>
@@ -64,15 +64,16 @@
                 <i class="fa fa-envelope fa-2x "></i>
 
                 <div class="media-body ">
-                    <a href="mailto: abc@example.com " style="text-decoration: none; ">
-                                support@roombooking.com
+                    <a href="mailto: {{i.email}} " style="text-decoration: none; ">
+                                {{i.email}}
                             </a>
                     <p>Send Us Your Query Anytime!</p>
                 </div>
 
             </div>
+           
         </div>
-
+        {% endfor %}
     </div>
 </div>
 

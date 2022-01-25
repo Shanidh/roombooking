@@ -2,7 +2,15 @@
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <h1 class="h2">Dashboard</h1>
 
-</div><br>
+</div><br> {% if messages %} {% for message in messages %}
+<div class="alert alert-dismissible alert-success">
+    <button type="button" class="close" data-dismiss="alert">
+      ×
+      </button>
+    <strong>{{message}}<strong>
+    </div>
+ {% endfor %}
+{% endif %}
 
 <!-- <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas> -->
 
@@ -12,7 +20,6 @@
             <h2 class="h6 font-weight-bold text-center mb-4">Total Properties</h2>
 
             <!-- Progress bar 1 -->
-
             <div class="progress mx-auto">
                 <span class="progress-left">
                             <span class="progress-bar border-primary"></span>
@@ -20,8 +27,8 @@
                 <span class="progress-right">
                             <span class="progress-bar border-primary"></span>
                 </span>
-                <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
-                    <div class="h2 font-weight-bold"></div>
+                <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center">
+                    <div class="progress-bar" role="progressbar" style="width: '{{totalp}}%'  ;" aria-valuenow="{{totalp}}" aria-valuemin="0" aria-valuemax="10">{{totalp}}</div>
                 </div>
             </div>
             <!-- END -->
@@ -41,8 +48,8 @@
                 <span class="progress-right">
                             <span class="progress-bar border-success"></span>
                 </span>
-                <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
-                    <div class="h2 font-weight-bold"></div>
+                <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center">
+                    <div class="progress-bar" role="progressbar" style="width: '{{totalo}}%'  ;" aria-valuenow="{{totalo}}" aria-valuemin="0" aria-valuemax="10">{{totalo}}</div>
                 </div>
             </div>
             <!-- END -->
@@ -52,7 +59,7 @@
     </div>
     <div class="col-xl-3 col-lg-6 col-sm-12 mb-4">
         <div class="bg-white rounded-lg p-5 shadow">
-            <h2 class="h6 font-weight-bold text-center mb-4">Available</h2>
+            <h2 class="h6 font-weight-bold text-center mb-4">Customers</h2>
 
             <!-- Progress bar 3 -->
             <div class="progress mx-auto">
@@ -62,8 +69,8 @@
                 <span class="progress-right">
                             <span class="progress-bar border-danger"></span>
                 </span>
-                <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
-                    <div class="h2 font-weight-bold"></div>
+                <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center">
+                    <div class="progress-bar" role="progressbar" style="width: '{{totalc}}%'  ;" aria-valuenow="{{totalc}}" aria-valuemin="0" aria-valuemax="10">{{totalc}}</div>
                 </div>
             </div>
             <!-- END -->
@@ -104,107 +111,24 @@
                 <th scope="col">Property Name</th>
                 <th scope="col">Property type</th>
                 <th scope="col">Location</th>
-                <th scope="col">Uploaded Date</th>
-                <th scope="col">username</th>
-                <th scope="col">Status</th>
-                <th scope="col">Action</th>
+                <th scope="col">Contactname</th>
+                <th scope="col">Contactphone</th>
+                <th scope="col">Actions</th>
             </tr>
         </thead>
+        {% for i in prop %}
         <tbody>
             <tr>
-                <td>1</td>
-                <td>White hotel</td>
-                <td>Hotel</td>
-                <td>Kozhikode</td>
-                <td>04/04/2021</td>
-                <td>ram@gmail.com</td>
-                <td>Available</td>
-                <td><a href="editproperty" button type="button" class="btn btn-primary">Edit</a>
-                    <button class="btn btn-primary">Delete</button></td>
+                <td>{{i.id}}</td>
+                <td>{{i.property_name}}</td>
+                <td>{{i.property_type}}</td>
+                <td>{{i.City}}</td>
+                <td>{{i.contact_name}}</td>
+                <td>{{i.contact_phone}}</td>
+                <td><a href="{% url 'viewproperty' i.id %}" button type="button" class="btn btn-primary">View</a>
+                    <a href="{% url 'deleteprop' i.id %}"><Button class="btn btn-primary">Delete</Button></a>
             </tr>
-
-
-
-            <tr>
-                <td>1</td>
-                <td>White hotel</td>
-                <td>Hotel</td>
-                <td>Kozhikode</td>
-                <td>04/04/2021</td>
-                <td>ram@gmail.com</td>
-                <td>Available</td>
-                <td><a href="editproperty" button type="button" class="btn btn-primary">Edit</a>
-                    <button class="btn btn-primary">Delete</button></td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>White hotel</td>
-                <td>Hotel</td>
-                <td>Kozhikode</td>
-                <td>04/04/2021</td>
-                <td>ram@gmail.com</td>
-                <td>Available</td>
-                <td><a href="editproperty" button type="button" class="btn btn-primary">Edit</a>
-                    <button class="btn btn-primary">Delete</button></td>
-            </tr>
-
-        </tbody>
+        </tbody> {% endfor %}
     </table>
 </div>
-<br><br>
-<h2>New Properties</h2>
-<div class="table-responsive">
-    <table class="table table-striped table-sm">
-        <thead>
-            <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Property Name</th>
-                <th scope="col">Property type</th>
-                <th scope="col">Location</th>
-                <th scope="col">Uploaded Date</th>
-                <th scope="col">username</th>
-                <!-- <th scope="col">Status</th> -->
-                <th scope="col">Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>White hotel</td>
-                <td>Hotel</td>
-                <td>Kozhikode</td>
-                <td>04/04/2021</td>
-                <td>ram@gmail.com</td>
-                <!-- <td>Available</td> -->
-                <td><a button type="button" class="btn btn-primary">Accept</a>
-                    <button class="btn btn-primary">Delete</button></td>
-            </tr>
-
-
-
-            <tr>
-                <td>1</td>
-                <td>White hotel</td>
-                <td>Hotel</td>
-                <td>Kozhikode</td>
-                <td>04/04/2021</td>
-                <td>ram@gmail.com</td>
-                <!-- <td>Available</td> -->
-                <td><a button type="button" class="btn btn-primary">Accept</a>
-                    <button class="btn btn-primary">Delete</button></td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>White hotel</td>
-                <td>Hotel</td>
-                <td>Kozhikode</td>
-                <td>04/04/2021</td>
-                <td>ram@gmail.com</td>
-                <!-- <td>Available</td> -->
-                <td><a button type="button" class="btn btn-primary">Accept</a>
-                    <button class="btn btn-primary">Delete</button></td>
-            </tr>
-
-        </tbody>
-    </table>
-</div>{% endblock %}
+{% endblock %}

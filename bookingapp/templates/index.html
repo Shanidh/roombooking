@@ -1,25 +1,40 @@
 {% extends 'base.html' %} {% block content %}{% load static %}
 <div class="carousel-inner ">
     <div class="carousel-item active ">
-        <img src="{% static 'image/room-reservation.jpg' %}" alt=" " width="100%" height="600px">
+        {% if messages %} {% for message in messages %}
+        <div class="alert alert-dismissible alert-success">
+            <button type="button" class="close" data-dismiss="alert">
+      ×
+      </button>
+            <strong>{{message}}<strong>
+    </div>
+ {% endfor %}
+{% endif %}
+        <img src="{% static 'image/room-reservation.jpg' %}" alt=" " width="100%" height="600px"> 
         <div class="container ">
             <div class="carousel-caption text-start ">
                 <div class="mt-4 ">
                     <div class="col ">
                         <center>
-                            <form action="# " class="search-box">
+                            <form action="{% url 'caresults' %}" method="POST">
+                                {% csrf_token %}
                                 <div class="input-group ">
                                     <div class="col-md-6">
                                         <div>
-                                            <input class="form-control me-2 " type="search " placeholder="Enter location" aria-label="Search " required>
+                                            <!-- <input class="form-control me-2 " type="search " placeholder="Enter location" aria-label="Search " required> -->
+                                            <select name="City" class="form-select">
+                                                    <option selected value="Kozhikode">Kozhikode</option>
+                                                    <option value="Kochi">Kochi</option>
+                                                    <option value="Trivandrum">Trivandrum</option>
+                                                  </select>
                                         </div> <br>
 
                                         <div>
                                             <input type="text" class="form-control" placeholder="check-in" onfocus="(this.type='date')"><br>
                                         </div>
-                                        <div>
+                                        <!-- <div>
                                             <input type="date " class="form-control " placeholder="check-out " aria-label="check-out " onfocus="(this.type='date')"><br>
-                                        </div>
+                                        </div> -->
                                         <!-- <div>
                                             <select class="form-select " id="inputGroupSelect04 " aria-label="Example select with button addon ">
                                             <option selected>1 Room</option>
@@ -35,7 +50,7 @@
                                           </select><br>
                                         </div><br>
                                         <!--  <div class="mb-3 " style="padding-left: 300px; "> -->
-                                        <a href="{% url 'caresults' %}" button type="button " class="btn btn-primary">Check Availability</a>
+                                        <button type="submit" class="btn btn-primary">Check Availability</button>
                                         <!-- </div> -->
                                     </div>
                             </form>
@@ -60,40 +75,46 @@
         <div class="col-md-4 mb-3" style="padding-bottom: 80px;">
             <img src="{% static 'image/281851425.jpg' %}" alt="" width="200" height="160">
             <h2>Hotels</h2>
-            <!-- <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p> -->
-            <p><a class="btn btn-primary " href="{% url 'caresults' %}">View &raquo;</a></p>
+            <form action="{% url 'hotels' %}" method="post">
+                {% csrf_token %}
+            <p><button type="submit" class="btn btn-primary">View &raquo;</button></p></form>
         </div>
         <!-- /.col-lg-4 -->
         <div class="col-md-4 mb-3">
             <img src="{% static 'image/Exotic-beach-resorts-in-Kerala.jpg' %}" alt="" width="200" height="160">
             <h2>Resorts</h2>
-            <!-- <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p> -->
-            <p><a class="btn btn-primary " href="{% url 'caresults' %}">View  &raquo;</a></p>
+            <form action="{% url 'Resorts' %}" method="post">
+                {% csrf_token %}
+                <p><button type="submit" class="btn btn-primary">View &raquo;</button></p></form>
         </div>
         <!-- /.col-lg-4 -->
         <div class="col-md-4 mb-3">
             <img src="{% static 'image/photo-1555854877-bab0e564b8d5.jpg' %}" alt="" width="200" height="160">
             <h2>Hostels</h2>
-            <!-- <p>And lastly this, the third column of representative placeholder content.</p> -->
-            <p><a class="btn btn-primary " href="{% url 'caresults' %}">View  &raquo;</a></p>
+            <form action="{% url 'Hostels' %}" method="post">
+                {% csrf_token %}
+                <p><button type="submit" class="btn btn-primary">View &raquo;</button></p></form>
         </div>
         <div class="col-md-4 mb-3">
             <img src="{% static 'image/image.jpg' %}" alt="" width="200" height="160">
             <h2>Apartments</h2>
-            <!-- <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p> -->
-            <p><a class="btn btn-primary " href="{% url 'caresults' %}">View &raquo;</a></p>
+            <form action="{% url 'Apartments' %}" method="post">
+                {% csrf_token %}
+                <p><button type="submit" class="btn btn-primary">View &raquo;</button></p></form>
         </div>
         <div class="col-md-4 mb-3">
             <img src="{% static 'image/estate-residency-homestay-munnar.jpg' %}" alt="" width="200" height="160">
             <h2>Homestays</h2>
-            <!-- <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p> -->
-            <p><a class="btn btn-primary " href="{% url 'caresults' %}">View &raquo;</a></p>
+            <form action="{% url 'Homestays' %}" method="post">
+                {% csrf_token %}
+                <p><button type="submit" class="btn btn-primary">View &raquo;</button></p></form>
         </div>
         <div class="col-md-4 mb-3">
             <img src="{% static 'image/houseboat-backwater-water-kerala.jpg' %}" alt="" width="200" height="160">
             <h2>Boats</h2>
-            <!-- <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p> -->
-            <p><a class="btn btn-primary " href="{% url 'caresults' %}">View &raquo;</a></p>
+            <form action="{% url 'Boats' %}" method="post">
+                {% csrf_token %}
+                <p><button type="submit" class="btn btn-primary">View &raquo;</button></p></form>
         </div>
         <!-- /.col-lg-4 -->
         <!-- <h2><b>Explore:</b></h2> -->
@@ -124,58 +145,6 @@
             <p>room booking is a room search with an extensive price comparison. The prices shown come from numerous hotels and booking websites. This means that while users decide on our site which hotel best suits their needs, the booking process itself
                 is completed through the booking sites (which are linked to our website). By clicking on the “view deal” button, you will be forwarded onto a booking site where you can complete the reservation for the hotel deal found in here. Let our
                 site help you to find the right price.</p>
-        </div>
-    </div>
-    <hr class="featurette-divider ">
-    <br>
-    <h2 id="contact"><b>Contact Us:</b></h2><br>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Enter Message" rows="10"></textarea><br>
-                <div class="row">
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="Enter User name" aria-label="User Name" id="usernamecontact">
-                    </div>
-                    <div class="col">
-                        <input type="email" class="form-control" id="emailcontact" placeholder="Enter your Email" name="emailcontact">
-                    </div>
-                    <div class="col-12"><br>
-                        <input type="text" class="form-control" id="subjectcontact" placeholder="Enter Subject"><br>
-                    </div>
-
-                    <button type="button" class="btn btn-outline-primary" style="width: 100px;" id="sendcontact">Send</button>
-                </div>
-
-            </div>
-
-            <div class="col-md-3 offset-md-2"><br>
-                <div class="media-account-info row">
-
-                    <i class="fa fa-phone fa-2x"></i>
-
-                    <div class="media-body ">
-                        <a href="tel:9444777891" style="text-decoration: none;">
-                                +91 9444777891
-                            </a>
-                        <p>Mon to Fri 9am to 6pm</p>
-                    </div>
-
-                </div><br><br>
-                <div class="media-account-info row ">
-
-                    <i class="fa fa-envelope fa-2x "></i>
-
-                    <div class="media-body ">
-                        <a href="mailto: abc@example.com " style="text-decoration: none; ">
-                                support@roombooking.com
-                            </a>
-                        <p>Send Us Your Query Anytime!</p>
-                    </div>
-
-                </div>
-            </div>
-
         </div>
     </div>
 

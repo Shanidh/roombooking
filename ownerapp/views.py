@@ -4,6 +4,8 @@ from django.http import JsonResponse, HttpResponse
 from django.core.files.storage import FileSystemStorage
 from random import random
 from django.contrib import messages
+from adminapp.models import *
+from bookingapp.models import *
 
 # Create your views here.
 def newfunction(request):
@@ -150,9 +152,13 @@ def newfunction10(request,roomid=None):
     activeprop = request.session['prprty']
     activeroom1 = request.session['roomprp1'] = roomid
     prop=ownerproperties.objects.filter(id=activeprop)
-    return render(request,'viewroom.html',{'view':room})     
+    br=bookform.objects.filter(roomid=roomid)
+    context={'view':room,'br':br}
+    return render(request,'viewroom.html',context)     
 
 def newfunction11(request):
+    userid=request.session['sample1']
+    room=roomproperty.objects.filter(owner_id=userid)
     return render(request,'allbooking.html') 
 
 def facilities(request,prpid=None):
@@ -220,10 +226,12 @@ def oaboutus(request):
     return render(request,'oaboutus.html')
 
 def oblogs(request):
-    return render(request,'oblogs.html')    
+    bl=blogs.objects.all()
+    return render(request,'oblogs.html',{'bl':bl})    
 
 def ocontactus(request):
-    return render(request,'ocontactus.html')     
+    adc=admin1.objects.all()
+    return render(request,'ocontactus.html',{'adc':adc})     
 
 def sendmessage(request):
     try:

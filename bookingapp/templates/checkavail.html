@@ -209,7 +209,7 @@
         </div>
         <br><br><br>
         <div id="myCarousel " data-bs-ride="carousel">
-            <div style="background-color: darkgray; ">
+            <!-- <div style="background-color: darkgray; ">
                 <br>
                 <form action="# " class="search-box " style="padding-left: 95px; ">
                     <div class="input-group row ">
@@ -222,13 +222,13 @@
                         <div class="col-md-2 ">
                             <input type="date " class="form-control " placeholder="check-out " aria-label="check-out " onfocus="(this.type='date' ) "><br>
                         </div>
-                        <!-- <div class="col-md-2 ">
+                        <div class="col-md-2 ">
                             <select class="form-select " id="inputGroupSelect04 " aria-label="Example select with button addon ">
                                 <option selected>1 Room</option>
                                 <option value="2 ">2 Rooms</option>
                                 <option value="3 ">3 Rooms</option>
                               </select>
-                        </div> -->
+                        </div>
                         <div class="col-md-2 ">
                             <select class="form-select " id="inputGroupSelect04 " aria-label="Example select with button addon ">
                                 <option selected>1 Guest</option>
@@ -242,7 +242,7 @@
                     </div>
                 </form>
 
-            </div>
+            </div> -->
             <div class="row " style="padding-left: 20px; ">
                 <div class="col-md-4 "><br>
                     <table border="1 " cellpadding="15px " style="width: 300px; ">
@@ -250,26 +250,26 @@
                             <th>filter by:</th>
                         </tr>
                     </table>
-                    <table border="1 " cellpadding="15px " style="border-top: none; width: 300px; ">
+                    <!-- <table border="1 " cellpadding="15px " style="border-top: none; width: 300px; ">
                         <tr>
                             <th>Rating:</th>
                         </tr>
                         <tr>
                             <td>
                                 <select name="propertytypes" class="form-control">
-                                    <option value="a3s">Above 3 star</option>
+                                    <option value="a3s"><a href="index.html" type="submit"> Above 3 star</a></option>
                                     <option value="b3s">Below 3 star</option>
                                 </select>
                             </td>
                         </tr>
-                    </table>
+                    </table> -->
                     <table border="1 " cellpadding="15px " style="border-top: none; width: 300px; ">
                         <tr>
                             <th><label for="propertytypes ">Property types:</label> </th>
                         </tr>
                         <tr>
                             <td>
-                                <select name="propertytypes" class="form-control">
+                                <!-- <select name="propertytypes" class="form-control">
                                     <option value="hotels">Hotels</option>
                                     <option value="Resorts">Resorts</option>
                                     <option value="Hostels">Hostels</option>
@@ -277,31 +277,77 @@
                                     <option value="Homestays">Homestays</option>
                                     <option value="Boats">Boats</option>
                                     <option value="Others">Others</option>
-                                </select>
+                                </select> -->
+                                <form action="{% url 'hotels' %}" method="post">
+                                    {% csrf_token %}
+                                    <button type="submit" style="border: none; background: none;">Hotels</button></form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <form action="{% url 'Resorts' %}" method="post">
+                                    {% csrf_token %}
+                                    <button type="submit" style="border: none; background: none;">Resorts</button></form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <form action="{% url 'Hostels' %}" method="post">
+                                    {% csrf_token %}
+                                    <button type="submit" style="border: none; background: none;">Hostels</button></form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <form action="{% url 'Apartments' %}" method="post">
+                                    {% csrf_token %}
+                                    <button type="submit" style="border: none; background: none;">Apartments</button></form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <form action="{% url 'Homestays' %}" method="post">
+                                    {% csrf_token %}
+                                    <button type="submit" style="border: none; background: none;">Homestays</button></form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <form action="{% url 'Boats' %}" method="post">
+                                    {% csrf_token %}
+                                    <button type="submit" style="border: none; background: none;">Boats</button></form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <form action="{% url 'Others' %}" method="post">
+                                    {% csrf_token %}
+                                    <button type="submit" style="border: none; background: none;">Others</button></form>
+                            </td>
                         </tr>
 
                     </table>
-                    <table border="1 " cellpadding="15px " style="border-top: none; width: 300px; ">
+                    <!-- <table border="1 " cellpadding="15px " style="border-top: none; width: 300px; ">
                         <tr>
                             <th><label for="pricerange">Price range:</label> </th>
                         </tr>
                         <tr>
-                            <td>
-                                <!-- <div data-role="rangeslider">
+                            <td> -->
+                    <!-- <div data-role="rangeslider">
                                     <label for="price-min">Price:</label>
                                     <input type="range" name="price-min" id="price-min" value="200" min="0" max="1000">
                                     <label for="price-max">Price:</label>
                                     <input type="range" name="price-max" id="price-max" value="800" min="0" max="1000">
                                 </div>
                                 <input type="submit" data-inline="true" value="Submit"> -->
-                                <p>
+                    <!-- <p>
                                     <input type="text" id="amount" style="border:0; color:#f6931f; font-weight:bold;">
                                 </p>
                                 <div id="slider-range"></div>
                             </td>
                         </tr>
 
-                    </table>
+                    </table> -->
                 </div>
                 <div class="col-md-6 "><br> {% block content %} {% endblock %}
                 </div>

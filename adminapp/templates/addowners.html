@@ -7,8 +7,8 @@
         <div class="row">
             <div class="col-md-6 col-lg-6 col-xlg-6 col-sm-12 mx-auto">
 
-                <form>
-
+                <form method="POST" action="{% url 'addowner' %}">
+                    {% csrf_token %}
                     <div class="form-group">
                         <label for="name">Name:</label>
                         <input type="text" class="form-control" id="name" name="name">
@@ -22,32 +22,18 @@
                         <input type="number" class="form-control " id="phone" name="phone">
                     </div><br>
                     <div class="form-group">
-                        <label for="pwd">Status:</label>
-                        <select class="form-control" name="status" id="status">
-                            <option value="1">Active</option>
-                            <option value="2">Not Active</option>
-                            
-                        </select>
-                    </div><br>
-                    <div class="form-group">
                         <label for="gender">Gender:</label>
                         <select class="form-control" name="gender" id="gender">
-                            <option value="1">Male</option>
-                            <option value="2">Female</option>
-                            
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>                           
                         </select>
                     </div><br>
                     <div class="form-group">
                         <label for="dob">Date of Birth:</label>
-                        <input type="text" class="form-control " id="dob" name="dob">
+                        <input type="text" class="form-control" placeholder="Date of Birth" onfocus="(this.type='date')" id="odob" name="dob" required>
                     </div><br>
                     <button type="submit" class="btn btn-danger">Save</button>
-                    <a href="owners" button type="reset" class="btn btn-danger">Cancel</a>
-                    <input type="hidden" name="roomid">
-                    <input type="hidden" name="roomtypevalue" id="roomtypevalue">
-                    <input type="hidden" name="roomstatus" id="roomstatus">
-                    <input type="hidden" class="form-control " id="hotel" name="hotel">
-                    <input type="hidden" class="form-control" id="roomnumber" name="roomnumber">
+                    <a href="{% url 'ownerss' %}" button type="Cancel" class="btn btn-danger">Cancel</a>
                 </form>
             </div>
         </div>

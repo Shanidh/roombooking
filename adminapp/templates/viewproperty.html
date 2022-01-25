@@ -1,0 +1,190 @@
+{% extends 'admin1.html' %} {% load static %} {% block content %}
+<br><br>
+<section class="shop-details">
+    <div class="product__details__pic">
+        <div class="container">
+            <div class="row">
+                {% for i in propt %}
+                <div class="col-md-4" style="padding-left: 200px;">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                            <div class="product__details__pic__item">
+                                <img src="/adminapp/media/{{i.propertyimage}}" alt="sds" style="height: 400px; width: 500px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div><br>
+    <div class="product__details__content">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col">{% for i in propt %}
+                    <div class="product__details__text">
+                        <h4>{{i.property_name}}</h4>
+                        <!-- <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                            <span> - 5 Reviews</span> </div>-->
+
+                        <h3>{{i.property_type}}<span></span></h3>
+
+                        <p><i class="fa fa-map-marker"></i> {{i.property_address}} </p>
+                        <p>{{i.City}}</p>
+                        <p>{{i.State}}</p>
+                        <p>{{i.Pincode}}</p>
+                        <h5>Contact:</h5>
+
+                        <p>Name: {{i.contact_name}}</p>
+                        <p>Phone Number: {{i.contact_phone}}</p><br>
+                        <h5>Star Rate: {{i.star_rate}}</h5>
+                        <div class="product__details__option">
+
+                            <!-- <div class="product__details__cart__option">
+
+                                <select class="form-select col-md-4" aria-label="Default select example">
+                                        <option selected>Single room</option>
+                                        <option value="1">Double room</option>
+                                        <option value="2">Quad room </option>                                     
+                                      </select><br>
+                            </div><br> -->
+                            <div class="product__details__btns__option">
+                                <!-- <a href="#"><i class="fa fa-heart"></i> add to wishlist</a> -->
+                                <!-- <a href="#"><i class="fa fa-exchange"></i> Add To Compare</a> -->
+                            </div><br>
+                            <!-- <div class="product__details__last__option">
+                                <h5><span>Most popular facilities</span></h5>
+                                <img src="img/shop-details/details-payment.png" alt="">
+                                <ul>
+                                    <li><i class="fa fa-plane"></i> Airport shuttle</li>
+                                    <li>Room service</li>
+                                    <li> Free WiFi</li>
+                                    <li>Free parking</li>
+                                    <li>Family rooms</li>
+                                    <li> Restaurant</li>
+                                    <li>Tea/coffee maker in all rooms
+                                    </li>
+                                </ul>
+                            </div> -->
+                        </div>
+                    </div>
+                </div><br><br>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="product__details__tab">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="tab" href="#tabs-5" role="tab">Description</a>
+                                </li>
+                                <!-- <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#tabs-6" role="tab">Customer
+                                reviews(5)</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#tabs-7" role="tab">House Rules</a>
+                                </li> -->
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="tabs-5" role="tabpanel">
+                                    <div class="product__details__tab__content"><br>
+                                        <p>{{i.description}}
+                                        </p>
+
+                                    </div>
+                                </div>
+                                <!-- <div class="tab-pane" id="tabs-6" role="tabpanel">
+                                    <div class="product__details__tab__content"><br>
+                                        <div class="product__details__tab__content__item" style="height: 200px; list-style-type:none;">
+                                            <li>
+                                                <div class="row">
+                                                    <div class="col-md-2" style=" padding-left: 40px;">
+                                                        <img src="https://graph.facebook.com/v2.9/10157657415524698/picture?type=square&height=64&width=64" alt="loo" height="50px" width="50px"><br>
+                                                        <span>Suhas</span>
+                                                        <span>Kerala</span><br><br>
+                                                        <small>Single room</small><br>
+                                                        <small>1 night - April 2021</small><br>
+                                                        <small>Family</small>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <small style="margin-top: 30px;" align="center">reviewed 4 days ago</small><br>
+
+                                                    </div>
+                                                    <div class="col-md-6 mt-5">
+                                                        <h4>very neat and tidy</h4>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="rating">
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star-o"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <hr>
+                                            <a href="reviews" button type="button" class="btn btn-primary">Load more</a>
+                                        </div>
+                                    </div>
+                                </div><br> -->
+                                <!-- <div class="tab-pane" id="tabs-7" role="tabpanel">
+                                    <div class="product__details__tab__content ">
+                                        <div class="product__details__tab__content__item ">
+                                            <h5>Cancellation/ prepayment</h5>
+                                            <p>Cancellation and prepayment policies vary according to accommodation type.
+                                            </p>
+                                        </div>
+                                        <div class="product__details__tab__content__item ">
+                                            <h5>Child policies</h5>
+                                            <p>Children of any age are welcome. Children aged 18 years and above are considered adults at this property. To see correct prices and occupancy information, please add the number of children in your group and
+                                                their ages to your search.</p>
+                                        </div>
+                                        <div class="product__details__tab__content__item ">
+                                            <h5>Age restriction</h5>
+                                            <p>The minimum age for check-in is 18</p>
+                                        </div>
+                                        <div class="product__details__tab__content__item ">
+                                            
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <h5>Pets allowed:</h5>
+                                <p>{{i.pets}}</p><br>
+                                <h5>Childrens allowed:</h5>
+                                <p>{{i.Children}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>{% endfor %}
+        </div><br>
+        <h4>Rooms:</h4>
+        <table class="table table-striped  ">
+            <thead>
+                <th>Room Number</th>
+                <th>Type</th>
+                <th>Status</th>
+                <th>Price</th>
+                <th>Capacity</th>
+
+            </thead>
+            {% for i in roomt %}
+            <tr>
+                <td>{{i.roomnumber}}</td>
+                <td>{{i.roomtype}}</td>
+                <td>{{i.status}}</td>
+                <td>{{i.price}}</td>
+                <td>{{i.capacity}}</td>
+
+            </tr>
+            {% endfor %}
+        </table>
+</section><br><br><br>
+<!-- Shop Details Section End -->
+</div>{% endblock %}

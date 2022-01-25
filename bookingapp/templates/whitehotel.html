@@ -3,6 +3,7 @@
 <!-- Shop Details Section Begin -->
 <section class="shop-details">
     <div class="product__details__pic">
+        {% for i in pr %}
         <div class="container">
             <div class="row">
                 <div class=" col-md-4">
@@ -38,10 +39,10 @@
                     <div class="tab-content">
                         <div class="tab-pane active" id="tabs-1" role="tabpanel">
                             <div class="product__details__pic__item">
-                                <img src="{% static 'image/281851425.jpg' %}" alt="sds" style="height: 400px; width: 500px;">
+                                <img src="/adminpp/media/{{i.propertyimage}}" alt="sds" style="height: 400px; width: 500px;">
                             </div>
                         </div>
-                        <div class="tab-pane" id="tabs-2" role="tabpanel">
+                        <!-- <div class="tab-pane" id="tabs-2" role="tabpanel">
                             <div class="product__details__pic__item">
                                 <img src="{% static 'image/wh2.jpg' %}" alt="sdsd" style="height: 400px; width: 500px;">2
                             </div>
@@ -54,9 +55,8 @@
                         <div class="tab-pane" id="tabs-4" role="tabpanel">
                             <div class="product__details__pic__item">
                                 <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/321852780.jpg?k=3b02792b3e3460a473db6a76f7cec9367ac77f1117ae59e99485ee32b24e3fad&o=&hp=1" alt="" style="height: 400px; width: 500px;">
-                                <!-- <a href="https://www.youtube.com/watch?v=8PJ3_p7VqHw&list=RD8PJ3_p7VqHw&start_radio=1" class="video-popup"><i class="fa fa-play"></i></a> -->
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -67,24 +67,31 @@
             <div class="row d-flex justify-content-center">
                 <div class="col">
                     <div class="product__details__text">
-                        <h4>WHITE SUITE HOTEL</h4>
-                        <div class="rating">
+                        <h4>{{i.property_name}}</h4>
+                        <!-- <div class="rating">
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star-o"></i>
                             <span> - 5 Reviews</span>
-                        </div>
-                        <h3>₹ 1,325 <span></span></h3>
+                        </div> -->
+                        <!-- <h3>₹ 1,325 <span></span></h3> -->
 
-                        <p><i class="fa fa-map-marker"></i> Near Raviz Kadavu Resort, NH Bypass Kozhikkode Azhinjilam PO, Ramanattukara, Malappuram, Kerala, 673632 Kozhikode, India </p>
+                        <p><i class="fa fa-map-marker"></i> {{i.property_address}} </p>
+                        <p>{{i.City}}</p>
+                        <p>{{i.State}}</p>
+                        <p>{{i.Pincode}}</p>
+                        <h6>Star rate: {{i.star_rate}}</h6>
+                        <h6>Contact:</h6>
+                        <p>{{i.contact_name}}</p>
+                        <p>{{i.contact_phone}}</p>
                         <div class="product__details__option">
 
                             <div class="product__details__cart__option">
                                 <!-- <a href="#" class="primary-btn">add to cart</a> -->
                                 <form action="#">
-                                    <div class="col-md-4 row ">
+                                    <!-- <div class="col-md-4 row ">
                                         <div class="input-group col-md-4">
                                             <p>Number of Guests:</p>&nbsp;
                                             <span class="input-group-btn">
@@ -114,15 +121,15 @@
                                         <option selected>Single room</option>
                                         <option value="1">Double room</option>
                                         <option value="2">Quad room </option>                                     
-                                      </select><br>
-                                    <a href="bookingform" button type="button" class="btn btn-primary">Book Now</a>
+                                      </select><br> -->
+                                    <!-- <a href="bookingform" button type="button" class="btn btn-primary">Book Now</a> -->
                                 </form>
                             </div><br>
                             <div class="product__details__btns__option">
                                 <!-- <a href="#"><i class="fa fa-heart"></i> add to wishlist</a> -->
                                 <!-- <a href="#"><i class="fa fa-exchange"></i> Add To Compare</a> -->
                             </div><br>
-                            <div class="product__details__last__option">
+                            <!-- <div class="product__details__last__option">
                                 <h5><span>Most popular facilities</span></h5>
                                 <img src="img/shop-details/details-payment.png" alt="">
                                 <ul>
@@ -135,7 +142,7 @@
                                     <li>Tea/coffee maker in all rooms
                                     </li>
                                 </ul>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div><br><br>
@@ -144,28 +151,25 @@
                         <div class="product__details__tab">
                             <ul class="nav nav-tabs" role="tablist">
                                 <li class="nav-item">
-                                    <a class="nav-link active" data-toggle="tab" href="#tabs-5" role="tab">Description</a>
+                                    <a class="nav-link active" data-toggle="tab" role="tab">Description</a>
                                 </li>
-                                <li class="nav-item">
+                                <!-- <li class="nav-item">
                                     <a class="nav-link" data-toggle="tab" href="#tabs-6" role="tab">Customer
                                 reviews(5)</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" data-toggle="tab" href="#tabs-7" role="tab">House Rules</a>
-                                </li>
+                                </li> -->
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane active" id="tabs-5" role="tabpanel">
                                     <div class="product__details__tab__content"><br>
-                                        <p>Set in Kozhikode, 9 km from Aster Mims, WHITE SUITE HOTEL offers accommodation with a restaurant, free private parking and a shared lounge. Featuring family rooms, this property also provides guests with a sun terrace.
-                                            The accommodation provides a 24-hour front desk, airport transfers, room service and free WiFi throughout the property.</p>
-                                        <p> The units come with air conditioning, a flat-screen TV with satellite channels, a kettle, a shower, a hairdryer and a wardrobe. At the hotel every room includes a private bathroom with free toiletries.</p>
-                                        <p> The nearest airport is Calicut International Airport, 12 km from WHITE SUITE HOTEL.
+                                        <p>{{i.description}}
                                         </p>
 
                                     </div>
                                 </div>
-                                <div class="tab-pane" id="tabs-6" role="tabpanel">
+                                <!-- <div class="tab-pane" id="tabs-6" role="tabpanel">
                                     <div class="product__details__tab__content"><br>
                                         <div class="product__details__tab__content__item" style="height: 200px; list-style-type:none;">
                                             <li>
@@ -222,53 +226,44 @@
                                             <p>Pets are not allowed.</p>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
+                            </div>
+                            <div class="product__details__tab__content__item ">
+                                <h5>Cancellation allowed on before(free charge)</h5>{{i.Cancel_freecharge_date}}
+                            </div><br>
+                            <div class="product__details__tab__content__item ">
+                                <h5>Children allowed</h5>{{i.Children}}
+                            </div><br>
+                            <div class="product__details__tab__content__item ">
+                                <h5>Pets allowed</h5>{{i.pets}}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            {% endfor %}
             <div><br><br>
                 <h2>Room description: (24 HOURS)</h2><br>
                 <table class="table table-borderless">
                     <tr>
                         <th>Roomtypes</th>
                         <th>Todays price</th>
-                        <th>Choices</th>
+                        <th>Capacity</th>
+                        <th>Book</th>
                     </tr>
+                    {% for i in rr %}
                     <tr>
-                        <td>Single room</td>
-                        <td>₹ 1,325</td>
+                        <td>{{i.roomtype}}</td>
+                        <td>₹ {{i.price}}</td>
                         <td>
-                            <ul>
-                                <li>No prepayment needed</li>
-                                <li>Free cancellation(before 1 week)</li>
-                            </ul>
+                            {{i.capacity}}
                         </td>
+                        <td><a href="{% url 'bookingform' i.id %}" button type="button" class="btn btn-primary">Book Now</a></td>
                     </tr>
-                    <tr>
-                        <td>Double room</td>
-                        <td>₹ 2,000</td>
-                        <td>
-                            <ul>
-                                <li>No prepayment needed</li>
-                                <li>Free cancellation(before 1 week)</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Quad room</td>
-                        <td>₹ 2,500</td>
-                        <td>
-                            <ul>
-                                <li>Payment needed</li>
-                                <li>No Free cancellation</li>
-                            </ul>
-                        </td>
-                    </tr>
+                    {% endfor %}
                 </table>
             </div>
-            <div>
+            <!-- <div>
                 <h3>Add customer reviews:</h3><br>
                 <form>
                     <div class="mb-3">
@@ -300,7 +295,7 @@
                     </div>
                     <a href="" button type="button" class="btn btn-primary">Send review</a>
                 </form>
-            </div>
+            </div> -->
         </div>
 </section><br><br><br>
 <!-- Shop Details Section End -->

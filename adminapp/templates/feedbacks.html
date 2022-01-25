@@ -1,7 +1,16 @@
 {% extends 'admin1.html' %}{% load static %} {% block content %}
 <div>
+    {% if messages %} {% for message in messages %}
+    <div class="alert alert-dismissible alert-success">
+        <button type="button" class="close" data-dismiss="alert">
+      ×
+      </button>
+        <strong>{{message}}<strong>
+    </div>
+ {% endfor %}
+{% endif %}
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Feedbacks: </h1>
+        <h1 class="h2">Owner Feedbacks: </h1>
     </div><br>
     <div class="table-responsive">
         <table class="table table-striped table-sm">
@@ -15,39 +24,54 @@
                     <th scope="col">Action</th>
                 </tr>
             </thead>
+            {% for i in ocs %}
             <tbody>
                 <tr>
-                    <td>1</td>
-                    <td>Ram s</td>
-                    <td>ram@gmail.com</td>
-                    <td>Booking problem</td>
-                    <td>sdsdsdsdsdsdsdsdsdsd</td>
-                    <td><a button type="button" class="btn btn-primary">Respond</a>
-                        <button class="btn btn-primary">Delete</button></td>
+                    <td>{{i.id}}</td>
+                    <td>{{i.name}}</td>
+                    <td>{{i.email}}</td>
+                    <td>{{i.subject}}</td>
+                    <td>{{i.message}}</td>
+                    <td>
+                        <!-- <a button type="button" class="btn btn-primary">Respond</a> -->
+                        <a href="{% url 'delofb' i.id %}" class="btn btn-primary">Delete</a>
+                    </td>
                 </tr>
-
-
-
-                <tr>
-                    <td>2</td>
-                    <td>Ram s</td>
-                    <td>ram@gmail.com</td>
-                    <td>Booking problem</td>
-                    <td>sdsdsdsdsdsdsdsdsdsd</td>
-                    <td><a button type="button" class="btn btn-primary">Respond</a>
-                        <button class="btn btn-primary">Delete</button></td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Ram s</td>
-                    <td>ram@gmail.com</td>
-                    <td>Booking problem</td>
-                    <td>sdsdsdsdsdsdsdsdsdsd</td>
-                    <td><a button type="button" class="btn btn-primary">Respond</a>
-                        <button class="btn btn-primary">Delete</button></td>
-                </tr>
-
-            </tbody>
+            </tbody> {% endfor %}
         </table><br><br><br>
+
+    </div>
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Customer Feedbacks: </h1>
+    </div><br>
+    <div class="table-responsive">
+        <table class="table table-striped table-sm">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Subject</th>
+                    <th scope="col">Message</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            {% for i in ccs %}
+            <tbody>
+                <tr>
+                    <td>{{i.id}}</td>
+                    <td>{{i.name}}</td>
+                    <td>{{i.email}}</td>
+                    <td>{{i.subject}}</td>
+                    <td>{{i.message}}</td>
+                    <td>
+                        <!-- <a button type="button" class="btn btn-primary">Respond</a> -->
+                        <a href="{% url 'delcfb' i.id %}" class="btn btn-primary">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+            {% endfor %}
+        </table><br><br><br>
+
     </div>
 </div>{% endblock %}

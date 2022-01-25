@@ -15,18 +15,22 @@
     <h3>Bookings: </h3>
     <table class="table">
         <thead>
-            <th>Username</th>
-            <th>Person</th>
+            <th>Customername</th>
             <th>check in</th>
             <th>check out</th>
+            <th>Address</th>
+            <th>Phone number</th>
+            <th>Email</th>
         </thead>
-
+        {% for i in br %}
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
+            <td>{{i.fname}} {{i.lname}}</td>
+            <td>{{i.checkin}}</td>
+            <td>{{i.checkout}}</td>
+            <td>{{i.address}}</td>
+            <td>{{i.phone}}</td>
+            <td>{{i.email}}</td>
+        </tr>{% endfor %}
 
         <!-- <tr>
             <td><b>Total bookings = </b></td>

@@ -2,78 +2,18 @@
 <div class="container"><br><br><br>
     <h2>Blogs:</h2><br>
     <div class="row row-cols-1 row-cols-md-2 g-4">
+        {% for i in bl%}
         <div class="col">
             <div class="card" style="width: 18rem;">
-                <img src="{% static 'image/29756481-400x229.jpg' %}" class="card-img-top" alt="">
+                <!-- <img src="{% static 'image/29756481-400x229.jpg' %}" class="card-img-top" alt=""> -->
                 <div class="card-body">
-                    <h5 class="card-title">10 Best Hotels In Calicut For A Delightful Staycation In God’s Own Country!</h5>
-                    <a href="blogresult" class="btn btn-primary">Read More</a>
+                    <h5 class="card-title">{{i.title}}</h5>
+                    <h6>Writtenby: {{i.writtenby}}</h6>
+                    <p>{{i.description}}</p>
                 </div>
             </div>
         </div>
-        <div class="col">
-            <div class="card" style="width: 18rem;">
-                <img src="{% static 'image/Coorg-Cover-400x266.jpg' %}" class="card-img-top" alt="">
-                <div class="card-body">
-                    <h5 class="card-title">Coorg In Monsoon: Witness The Best Of Greens At This Paradise Of South India In 2022!</h5>
-                    <a href="blogresult" class="btn btn-primary">Read More</a>
-                </div>
-            </div>
-        </div><br>
-        <!-- <div class="col">
-            <div class="card" style="width: 18rem;">
-                <img src="{% static 'image/Cover16-400x266.jpg' %}" class="card-img-top" alt="">
-                <div class="card-body">
-                    <h5 class="card-title">11 Best Places To Visit In Kerala In August To Experience Nature’s Splendour In 2022!</h5>
-                    <a href="blogresult" class="btn btn-primary">Read More</a>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card" style="width: 18rem;">
-                <img src="{% static 'image/Vagamon-Heights1-400x266.jpg' %}" class="card-img-top" alt="">
-                <div class="card-body">
-                    <h5 class="card-title">7 Dreamy Cottages In Vagamon For A Refreshing Break Amidst The Alluring Hills Of Kerala</h5>
-                    <a href="blogresult" class="btn btn-primary">Read More</a>
-                </div>
-            </div>
-        </div> -->
-        <!-- <div class="col">
-            <div class="card" style="width: 18rem;">
-                <img src="{% static 'image/Cochin.jpg' %}" class="card-img-top" alt="">
-                <div class="card-body">
-                    <h5 class="card-title">10 Surprisingly Good Budget Hotels In Cochin</h5>
-                    <a href="blogresult" class="btn btn-primary">Read More</a>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card" style="width: 18rem;">
-                <img src="{% static 'image/926-400x265.jpg' %}" class="card-img-top" alt="">
-                <div class="card-body">
-                    <h5 class="card-title">10 Best Hotels In Madikeri For A Perfect Getaway In The Hilly Paradise
-                    </h5>
-                    <a href="blogresult" class="btn btn-primary">Read More</a>
-                </div>
-            </div>
-        </div><br> -->
-        <nav aria-label="Page navigation er" align="center">
-            <ul class="pagination">
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}

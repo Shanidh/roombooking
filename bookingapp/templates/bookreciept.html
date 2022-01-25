@@ -1,41 +1,42 @@
-{% extends 'profilebase.html' %} {% block content %}{% load static %}
-<div>
+{% extends 'base.html' %} {% block content %}{% load static %}
+<div class="container">
     <h2>Booking Reciept and Details:</h2>
     <br><br>
-    <table class="table table-bordered">
+    <table class="table table-bordered">{% for i in brr %}
         <tr class="table table-dark">
             <th colspan="4">Customer and Order Details</th>
         </tr>
         <tr>
             <th>Booking ID</th>
-            <td>3</td>
-            <th>Date</th>
-            <td>11/12/2021</td>
+            <td>{{i.id}}</td>
+            <th>Customer Name</th>
+            <td>{{i.fname}} {{i.lname}}</td>
         </tr>
-        <tr>
+        <!-- <tr>
             <th>Booking Status</th>
             <td>Confirmed</td>
-            <th>Customer Name</th>
-            <td>1David V</td>
-        </tr>
+            <th>Date</th>
+            <td>11/12/2021</td>
+        </tr> -->
         <tr>
             <th>Email</th>
-            <td>david@gmail.com</td>
+            <td>{{i.email}}</td>
             <th>Contact</th>
-            <td>9745628760</td>
+            <td>{{i.phone}}</td>
         </tr>
         <tr>
             <th>From Date</th>
-            <td>11/12/2021</td>
+            <td>{{i.checkin}}</td>
             <th>To Date</th>
-            <td>12/12/2021</td>
+            <td>{{i.checkout}}</td>
         </tr>
         <tr>
-            <th>Total Days</th>
-            <td>1</td>
+            <th>Address</th>
+            <td>{{i.address}}</td>
             <th>Total Amount</th>
-            <td>₹ 3,000</td>
+            <td>₹ {{i.price}}</td>
         </tr>
+        {% endfor %}
     </table>
     <table class="table table-bordered">
         <tr class="table table-dark">

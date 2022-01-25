@@ -1,40 +1,41 @@
 {% extends 'admin1.html' %}{% load static %} {% block content %}
 <div>
     <div><br>
-        <h1 class="text-center my-0">Edit Blog</h1><br><br>
+        <h1 class="text-center my-0">Add Blog</h1><br><br>
         <!--Staff section -->
         <div class="container">
 
             <div class="row">
                 <div class="col-md-6 col-lg-6 col-xlg-6 col-sm-12 mx-auto">
 
-                    <form action="{% url 'editedblog' %}" method="POST">
-                        {% csrf_token %} {% for i in eblog %}
+                    <form action="{% url 'addedblog' %}" method="POST">
+                        {% csrf_token %}
                         <div class="form-group">
                             <label for="title">Title:</label>
-                            <input type="text" class="form-control" id="title" name="title" value="{{i.title}}">
+                            <input type="text" class="form-control" id="title" name="title">
                         </div><br>
                         <div class="form-group">
                             <label for="categories">Categories:</label>
-                            <input type="text" class="form-control" id="categories" name="categories" value="{{i.categories}}">
+                            <input type="text" class="form-control" id="categories" name="categories">
                         </div><br>
                         <div class="form-group">
                             <label for="writtenby">Written by:</label>
-                            <input type="text" class="form-control " id="writtenby" name="writtenby" value="{{i.writtenby}}">
+                            <input type="text" class="form-control " id="writtenby" name="writtenby">
                         </div><br>
                         <!-- <div class="form-group">
-                            <label for="dob">Date of Birth:</label>
-                            <input type="text" class="form-control " id="dob" name="dob" value="02/12/2000" disabled>
+                            <label for="blogimage">Blog image:</label>
+                            <input type="file" placeholder="images" name="images"><br>
                         </div><br> -->
                         <div class="form-group">
                             <label for="description">Description:</label>
-                            <input type="text" class="form-control " id="description" name="description" value="{{i.description}}">
-                        </div><br>{% endfor %}
+                            <input type="text" class="form-control " id="description" name="description">
+                        </div><br>
                         <button type="submit" class="btn btn-danger">Save</button>
-                        <a href="{% url 'ablogs' %}" class="btn btn-danger">Cancel</a>
+                        <a href="{% url 'ablogs' %}" button type="reset" class="btn btn-danger">Cancel</a>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-</div>{% endblock %}
+</div>
+{% endblock %}

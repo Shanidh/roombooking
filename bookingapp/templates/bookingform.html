@@ -4,51 +4,62 @@
 <section class="checkout spad">
     <div class="container">
         <div class="checkout__form">
-            <form action="#">
-                <div class="row">
-                    <div class="col-lg-8 col-md-6">
-                        <h2 class="checkout__title">Your Details:</h2><br>
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" placeholder="First name" aria-label="First name" required>
+
+            <div class="row">
+                <div class="col-md-8">
+                    <form action="{% url 'bform' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="col-md-6">
+                            <h2 class="checkout__title">Your Details:</h2><br>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="First name" aria-label="First name" name="fname" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="Last name" aria-label="Last name" name="lname" required>
+                                </div>
+                            </div><br>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="checkintime">Checkin date:</label>
+                                    <input type="text" class="form-control" onfocus="(this.type='date')" id="dob" name="checkin" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="checkouttime">Checkout time:</label>
+                                    <input type="text" class="form-control" onfocus="(this.type='date')" id="dob" name="checkout" required>
+                                </div>
+                            </div><br>
+                            <div class="col">
+                                <input type="text" class="form-control" id="inputAddress" name="address" placeholder="Address" required>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="country" placeholder="Country" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="state" placeholder="State" required>
+                                </div>
                             </div>
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" placeholder="Last name" aria-label="Last name" required>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="city" placeholder="Town/City" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="pincode" placeholder="Postcode / ZIP" required>
+                                </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="phone" placeholder="Phone number" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="email" placeholder="Email" required>
+                                </div>
                             </div>
-                        </div><br>
-                        <div class="col">
-                            <input type="text" class="form-control" id="inputAddress" placeholder="Address" required>
-                        </div><br>
-                        <div class="col">
-                            <input type="text" class="form-control" id="inputAddress2" placeholder="Address 2" required>
-                        </div><br>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" id="inputcountry" placeholder="Country" required>
-                            </div>
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" id="inputstate" placeholder="State" required>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" id="inputcity" placeholder="Town/City" required>
-                            </div>
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" placeholder="Postcode / ZIP" required>
-                            </div>
-                        </div><br>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" placeholder="Phone number" required>
-                            </div>
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" placeholder="Email" required>
-                            </div>
-                        </div>
-                        <br><br>
-                        <div class="checkout__input__checkbox">
+                            <br><br>
+                            <button type="submit" class="btn btn-primary btn-lg">Book Now</button>
+                            <!-- <div class="checkout__input__checkbox">
 
                             <h2> Complete Your Booking:</h2>
                         </div><br>
@@ -61,7 +72,7 @@
                                 <div style="display: none;" id="nopay">
                                     <h4>No payment needed</h4>
                                     <p>We will confirm your stay without any charge. Pay directly at the hotel during your stay.</p>
-                                    <button type="button" class="btn btn-primary btn-lg">Book Now</button>
+                                    <button type="submit" class="btn btn-primary btn-lg">Book Now</button>
                                 </div>
                                 <div style="display: none;" id="pay">
                                     <h4>Your card Details:</h4><br>
@@ -80,40 +91,35 @@
                                     <button type="button" class="btn btn-primary btn-lg">Pay Now</button>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
-                    </div>
-                    <div class="col-md-4 ">
-                        <div class="checkout__order">
-                            <h4 class="order__title">Your order:</h4><br>
-                            <img src="{% static 'image/281851425.jpg' %}" alt="" height="120px" width="150px"><br><br>
-                            <p><b>White Suit Hotel</b></p>
-                            <p> Kozhikode,Kerala</p>
-                            <p><b>10:30pm to 12pm</b></p>
-                            <p><b>10/12/2021 - 11/12/2021</b></p>
-                            <p><b>1 Rooms, 2 Guests</b></p>
-                            <hr>
-                            <table class="table table-borderless">
-                                <tr>
-                                    <td>Room price for 1 Night X 2 Guests</td>
-                                    <td>₹3848</td>
-                                </tr>
-                                <tr>
-                                    <td>Discount</td>
-                                    <td>-₹1154</td>
-                                </tr>
-                            </table>
-                            <hr>
-                            <table class="table table-borderless">
-                                <tr>
-                                    <td>Payable Amount</td>
-                                    <td>₹2674</td>
-                                </tr>
-                            </table>
                         </div>
+                    </form>
+                </div>
+                <div class="col-md-4">
+                    <div class="checkout__order">{% for i in prpty %}
+                        <h4 class="order__title">Your order:</h4><br>
+                        <img src="/adminpp/media/{{i.propertyimage}}" alt="" height="120px" width="150px"><br><br>
+                        <p><b>{{i.property_name}}</b></p>
+                        <p>{{i.property_address}}</p>
+                        <p><b>{{i.City}}, {{i.State}}</b></p>
+                        {% endfor %}
+                        <hr> {% for i in prppp%}
+                        <table class="table table-borderless">
+                            <tr>
+                                <td>Room type</td>
+                                <td>{{i.roomtype}}</td>
+                            </tr>
+                            <tr>
+                                <td>Price</td>
+                                <td>₹{{i.price}}</td>
+                            </tr>
+                        </table>
+                        {% endfor %}
                     </div>
                 </div>
-            </form>
+            </div>
+
         </div>
     </div>
 

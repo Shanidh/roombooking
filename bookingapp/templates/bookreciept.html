@@ -43,18 +43,18 @@
             <th>Room No.</th>
             <th>Image</th>
             <th>Room Type</th>
-            <th>Beds</th>
+            <!-- <th>Beds</th> -->
             <th>Per Day Cost</th>
-            <th>Total Cost</th>
-        </tr>
+            <!-- <th>Total Cost</th> -->
+        </tr>{% for i in brr %}
         <tr>
-            <td>Room-3</td>
+            <td>{{i.roomid.roomnumber}}</td>
             <td><img src="{% static 'image/281851425.jpg' %}" alt="" height="50px" width="50px"></td>
-            <th>Single Room</th>
-            <td>Single Bed</td>
-            <td>₹ 1,500</td>
-            <td>₹ 3,000</td>
-        </tr>
+            <th>{{i.roomid.roomtype}}</th>
+            <!-- <td>Single Bed</td> -->
+            <td>₹ {{i.roomid.price}}</td>
+            <!-- <td>₹ 3,000</td> -->
+        </tr>{% endfor %}
     </table><br><br>
     <a href="profile" button type="button" class="btn btn-primary">Back</a>
 </div>{% endblock %}

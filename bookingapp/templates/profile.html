@@ -135,22 +135,25 @@
                             <thead>
                                 <tr>
                                     <th scope="col">Bookingid</th>
-                                    <!-- <th scope="col">Room Type</th>
-                                    <th scope="col">Location</th> -->
+                                    <th>property name</th>
+                                    <th scope="col">Location</th>
+                                    <th scope="col">Room Type</th>
                                     <th scope="col">CheckIn - CheckOut</th>
-                                    <!-- <th scope="col">Rooms</th>
-                                    <th scope="col">Price</th> -->
+                                    <!-- <th scope="col">Rooms</th>-->
+                                    <th scope="col">Price</th> 
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>{% for i in ub %}
                                 <tr>
                                     <th scope="row">{{i.id}}</th>
-                                    <!-- <td>{{j.roomtype}}</td>
-                                    <td>Kozhikode,Kerala</td> -->
+                                    <td>{{i.propertyid.property_name}}</td>
+                                    <td>{{i.propertyid.City}}</td>
+                                    <td>{{i.roomid.roomtype}}</td> 
+                                    <!-- <td>Kozhikode,Kerala</td>  -->
                                     <td>{{i.checkin}} - {{i.checkout}}</td>
-                                    <!-- <td>1</td>
-                                    <td>₹ {{i.price}}</td> -->
+                                    <!-- <td>1</td>-->
+                                    <td>₹ {{i.roomid.price}}</td> 
                                     <td>
                                         <a href="{% url 'bookreciept' i.id %}" button type="button" class="btn-primary">View</a>
                                         <a href="{% url 'cancelbook' i.id %}" button type="button" class="btn-primary">Cancel</a>

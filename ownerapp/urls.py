@@ -26,6 +26,7 @@ urlpatterns = [
     path('oblogs/',views.oblogs,name='oblogs'),
     path('ocontactus/',views.ocontactus,name='ocontactus'),
     path('sendmessage/',views.sendmessage,name='sendmessage'),
+    path('delbk/<int:delbkid>/',views.delbk,name='delbk'),
 ]
 
 urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

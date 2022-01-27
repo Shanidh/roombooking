@@ -159,6 +159,7 @@ def newfunction10(request,roomid=None):
 def newfunction11(request):
     userid=request.session['sample1']
     room=roomproperty.objects.filter(owner_id=userid)
+    # bkfm=bookform.objects.filter(roomid_id=11)
     return render(request,'allbooking.html') 
 
 def facilities(request,prpid=None):
@@ -248,3 +249,10 @@ def sendmessage(request):
     except Exception as e: print(e)       
     messages.error(request, 'Message not sended')    
     return render(request,'ocontactus.html')    
+
+def delbk(request,delbkid=None):
+    userid=request.session['sample1']
+    propertydt=ownerproperties.objects.filter(uploadby=userid)
+    bookform.objects.filter(id=delbkid).delete()
+    messages.success(request,'cancelled booking successfully')
+    return render(request,'myproperty.html', {'data':propertydt})    

@@ -209,10 +209,9 @@ def usersendmessage(request):
     return render(request,'contactus.html')  
 
 def bform(request):
-    actbform=request.session['bform']
-    prppp=roomproperty.objects.filter(id=actbform)
+    actbform=roomproperty.objects.get(id=request.session['bform'])
     userid=request.session['sample']
-    actpropty=request.session['propty']
+    actpropty=ownerproperties.objects.get(id=request.session['propty'])
     if request.method=='POST':
         fname=request.POST['fname']
         lname=request.POST['lname']
@@ -227,7 +226,7 @@ def bform(request):
         email=request.POST['email']
         obj=bookform(fname=fname,lname=lname,checkin=checkin,checkout=checkout,address=address,country=country,state=state,city=city,pincode=pincode,phone=phone,email=email,roomid=actbform,userss_id=userid,propertyid=actpropty)
         obj.save()
-        messages.success(request,'Booked successfully')
+        # messages.success(request,'Booked successfully')
         return render(request,'index.html')
     return render(request,'bookingform.html')  
 
@@ -236,7 +235,6 @@ def profile(request):
     
     us=userbooking.objects.filter(id=uid)
     ub=bookform.objects.filter(userss_id=uid)
-    pp=ownerproperties.objects.get()
     msg={'us':us,'ub':ub}
     return render(request,'profile.html',msg)         
 

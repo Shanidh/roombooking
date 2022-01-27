@@ -1,5 +1,5 @@
 from django.db import models
-
+from ownerapp.models import *
 # Create your models here.
 class userbooking(models.Model):
     id=models.BigAutoField(primary_key=True)
@@ -31,5 +31,5 @@ class bookform(models.Model):
     phone=models.BigIntegerField()
     email=models.EmailField()
     userss=models.ForeignKey(userbooking,on_delete=models.CASCADE,null=True)
-    roomid=models.CharField(max_length=15)
-    propertyid=models.CharField(max_length=15)
+    roomid=models.ForeignKey(roomproperty,on_delete=models.CASCADE,null=True)
+    propertyid=models.ForeignKey(ownerproperties,on_delete=models.CASCADE,null=True)
